@@ -4,18 +4,17 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 MINILIBX = https://github.com/42paris/minilibx-linux.git
 MLIBX_PATH = minilibx
+LIBFT = git@github.com:sneshev/libft_42.git
+LIBFT_PATH = libft
+all: libft #mlibx $(NAME)
 
-all: mlibft #$(NAME)
-
-mlibft:
-	@if [ ! -d "$(MLIBX_PATH)" ]; then \
-		git clone $(MINILIBX) $(MLIBX_PATH); \
-	fi
+mlibx: 
+	@[ -d "$(MLIBX_PATH)" ] || git clone $(MINILIBX) $(MLIBX_PATH);
 	@cd $(MLIBX_PATH) && ./configure
 
-$(MLIBX_PATH)/build/libmlx42.a:
-	@[ -d "$(MLIBX_PATH)" ] || git clone $(MINILIBX) $(MLIBX_PATH)
-
+libft:
+	@[ -d "$(LIBFT_PATH)" ] || git clone $(LIBFT) $(LIBFT_PATH);
+	@cd $(LIBFT_PATH) && make 
 
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) $(LIBS) -o $(NAME)
@@ -35,4 +34,4 @@ $(OBJS_DIR)/%.o: src/%.c
 
 
 fclean:
-	rm -rf $(MLIBX_PATH)
+	rm -rf $(MLIBX_PATH) $(LIBFT_PATH)
