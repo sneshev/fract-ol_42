@@ -6,7 +6,7 @@ MINILIBX = https://github.com/42paris/minilibx-linux.git
 MLIBX_PATH = minilibx
 LIBFT = git@github.com:sneshev/libft_42.git
 LIBFT_PATH = libft
-all:  $(NAME) #libft mlibx 
+all:  libft $(NAME) #mlibx 
 
 mlibx: 
 	@[ -d "$(MLIBX_PATH)" ] || git clone $(MINILIBX) $(MLIBX_PATH);
@@ -34,4 +34,4 @@ $(NAME): $(OBJS) libft
 	$(CC) $(OBJS) $(LIBS) -o $(NAME)
 
 fclean:
-	rm -rf $(MLIBX_PATH) $(LIBFT_PATH)
+	rm -rf $(MLIBX_PATH) $(LIBFT_PATH) $(OBJS_DIR) $(NAME)
