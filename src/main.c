@@ -12,6 +12,6 @@ int main(int argc, char *argv[])
     t_data *data;
 
     data = init_data(argc, argv);
-    // if (!data)
-    //     return (printf("invalid data\n"), 1);
+    if (!data)
+        return (printf("invalid data\n"), 1);
 }
