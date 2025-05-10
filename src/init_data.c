@@ -1,27 +1,7 @@
 #include "fractol.h"
 
-t_data *init_julia(char *ala, char *bala)
-{
-    t_data *data;
 
-    data = (t_data *)malloc(sizeof (t_data));
-    if (!data)
-        return (NULL);
 
-    return (data);
-}
-
-t_data *init_mandelbrot(char *ala, char *bala)
-{
-    t_data *data;
-
-    data = (t_data *)malloc(sizeof (t_data));
-    if (!data)
-        return (NULL);
-
-    return (data);
-
-}
 
 bool is_num(char c)
 {
@@ -34,6 +14,8 @@ bool is_num(char c)
 
 bool is_valid_input(char *str)
 {
+    int i;
+
     if (*str == '-')
         str++;
     if (*str == '0' || *str == '1')
@@ -42,9 +24,10 @@ bool is_valid_input(char *str)
         if (*str == '.')
         {
             str++;
-            if (is_num(*str) && *(str + 1) == '\0')
-                return (true);
-            if (is_num(*str) && is_num(*(str + 1)) && *(str + 2) == '\0')
+            i = 0;
+            while (str[i] && is_num(str[i]) && i < 16)
+                i++;
+            if (!str[i])
                 return (true);
         }
     }

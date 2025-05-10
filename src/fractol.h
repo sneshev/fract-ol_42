@@ -10,16 +10,25 @@
 # define MANDELBROT 0
 # define JULIA 1
 
+# define X 0
+# define Y 1
+
 
 typedef struct data
 {
     // mlx_t   *mlx;
-
+    int         *z;
+    int         *c;
 }   t_data;
 
 
+// initialize
 t_data *init_data(int argc, char *argv[]);
+t_data *init_mandelbrot(char *c_real, char *c_imag);
+t_data *init_julia(char *ala, char *bala);
 
+// utils
+double atod(char *str);
 
 
 
