@@ -1,6 +1,16 @@
 #include "fractol.h"
 
-double fractional(char *str)
+void free_data(t_data *data)
+{
+    if (data->z)
+        free(data->z);
+    if (data->c)
+        free(data->c);
+    if (data)
+        free(data);
+}
+
+static double atod_fractional(char *str)
 {
     double fraction = 0.0;
     double divisor = 10.0;
@@ -43,5 +53,6 @@ double atod(char *str)
         }
         str++;
     }
-    return sign * (nb + fractional(str));
+    return sign * (nb + atod_fractional(str));
 }
+

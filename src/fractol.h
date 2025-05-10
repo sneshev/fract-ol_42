@@ -17,8 +17,8 @@
 typedef struct data
 {
     // mlx_t   *mlx;
-    int         *z;
-    int         *c;
+    double         *z;
+    double         *c;
 }   t_data;
 
 
@@ -28,8 +28,11 @@ t_data *init_mandelbrot(char *c_real, char *c_imag);
 t_data *init_julia(char *ala, char *bala);
 
 // utils
+void free_data(t_data *data);
 double atod(char *str);
 
+//helpers
+void print_coordinates(t_data *data);
 
 
 

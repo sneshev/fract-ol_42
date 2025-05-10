@@ -14,4 +14,6 @@ int main(int argc, char *argv[])
     data = init_data(argc, argv);
     if (!data)
         return (printf("invalid data\n"), 1);
+    print_coordinates(data);
+    free_data(data);
 }

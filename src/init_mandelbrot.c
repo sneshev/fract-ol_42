@@ -2,10 +2,10 @@
 
 static t_data *init_points(t_data *data, char *c_real, char *c_imag) //cannot be int. Double or Float  !   !   !
 {
-    data->z = (int *)malloc(2 * sizeof(int));    
+    data->z = (double *)malloc(2 * sizeof(int));    
     if (!data->z)
         return (free(data), NULL);    
-    data->c = (int *)malloc(2 * sizeof(int));    
+    data->c = (double *)malloc(2 * sizeof(int));    
     if (!data->c)
         return (free(data->z), free(data), NULL);    
 
@@ -31,4 +31,6 @@ t_data *init_mandelbrot(char *c_real, char *c_imag)
     if (!init_points(data, c_real, c_imag))
         return (NULL);
 
+
+    return (data);
 }

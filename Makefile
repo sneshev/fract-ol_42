@@ -35,3 +35,5 @@ $(NAME): $(OBJS) libft
 
 fclean:
 	rm -rf $(MLIBX_PATH) $(LIBFT_PATH) $(OBJS_DIR) $(NAME)
+
+re: fclean all
