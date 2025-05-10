@@ -32,9 +32,8 @@ bool is_valid_input(char *str)
     else if (*str == '2')
     {
         str++;
-        if (*str == '\0')
-            return (true);
-        if (*str == '.' && *(str + 1) == '0' && !(*(str + 2)))
+        if (*str == '\0'
+            || *str == '.' && *(str + 1) == '0' && !(*(str + 2)))
             return (true);
     }
     return (false);

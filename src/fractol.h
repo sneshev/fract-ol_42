@@ -3,7 +3,8 @@
 
 // # include "../minilibx/mlx.h"
 # include "../libft/libft.h"
-#include <stdbool.h>
+# include <stdbool.h>
+# include <math.h>
 
 
 
@@ -16,7 +17,7 @@
 # define ITERATIONS 500
 
 
-typedef struct data
+typedef struct s_data
 {
     // mlx_t   *mlx;
     double         *z;
