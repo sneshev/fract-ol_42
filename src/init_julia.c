@@ -1,6 +1,6 @@
 #include "fractol.h"
 
-static t_data *init_points(t_data *data, char *c_real, char *c_imag) //cannot be int. Double or Float  !   !   !
+static t_data *init_points(t_data *data, char *c_real, char *c_imag)
 {
     data->z = (double *)malloc(2 * sizeof(int));    
     if (!data->z)
@@ -31,5 +31,5 @@ t_data *init_julia(char *c_real, char *c_imag)
     if (!init_points(data, c_real, c_imag))
         return (NULL);
 
-    return (printf("AREBATEEE"), NULL);
+    return (data);
 }

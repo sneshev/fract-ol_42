@@ -9,8 +9,10 @@ static t_data *init_points(t_data *data)
     if (!data->c)
         return (free(data->z), free(data), NULL);    
 
-    data->z[X] = 0.0;
-    data->z[Y] = 0.0;
+    data->z[X] = 0.0; //idk what to initialize
+    data->z[Y] = 0.0; //idk what to initialize
+    data->c[X] = 0.0; //idk what to initialize
+    data->c[Y] = 0.0; //idk what to initialize
 
     return (data);
 }

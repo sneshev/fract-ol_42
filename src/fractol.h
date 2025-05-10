@@ -13,6 +13,8 @@
 # define X 0
 # define Y 1
 
+# define ITERATIONS 500
+
 
 typedef struct data
 {
