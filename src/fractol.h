@@ -24,8 +24,8 @@ typedef struct data
 
 // initialize
 t_data *init_data(int argc, char *argv[]);
-t_data *init_mandelbrot(char *c_real, char *c_imag);
-t_data *init_julia(char *ala, char *bala);
+t_data *init_mandelbrot(void);
+t_data *init_julia(char *c_real, char *c_imag);
 
 // utils
 void free_data(t_data *data);

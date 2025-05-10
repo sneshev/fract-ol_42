@@ -1,8 +1,6 @@
 #include "fractol.h"
 
 
-
-
 bool is_num(char c)
 {
     if (c  < '0')
@@ -50,14 +48,12 @@ t_data *init_data(int argc, char *argv[])
         if (ft_strncmp(argv[1], "julia", 6) == 0)
             return(init_julia(NULL, NULL));
         else if (ft_strncmp(argv[1], "mandelbrot", 12) == 0)
-            return (init_mandelbrot(NULL, NULL));
+            return (init_mandelbrot());
     }
     else if (argc == 4 && is_valid_input(argv[2]) && is_valid_input(argv[3]))
     {
         if (ft_strncmp(argv[1], "julia", 6) == 0)
             return(init_julia(argv[2], argv[3]));
-        else if (ft_strncmp(argv[1], "mandelbrot", 12) == 0)
-            return (init_mandelbrot(argv[2], argv[3]));
     }
     return (printf("to run: ./fractol *set* \n"), NULL);
 }
