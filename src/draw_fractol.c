@@ -3,7 +3,7 @@
 #define TEMP 2
 
 // z(n+1) = z^2 + c;
-static bool calculate_point(double *c) //will not be bool in future
+static int calculate_point(double *c) 
 {
     double z[3];
     int count;
@@ -16,12 +16,10 @@ static bool calculate_point(double *c) //will not be bool in future
         z[TEMP] = z[X] * z[X] - z[Y] * z[Y] + c[X];
         z[Y] = 2 * z[X] * z[Y] + c[Y];
         z[X] = z[TEMP];
-        if (sqrt(z[X] * z[X] + z[Y] * z[Y]) >= 2)
-            break ;
+        if (z[X] * z[X] + z[Y] * z[Y] >= 4)
+            return (count);
     }
-    if (count == ITERATIONS) // NOT PART OF SET
-        return (false);
-    return (true);
+    return (count);
 }
 
 

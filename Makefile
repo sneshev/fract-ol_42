@@ -6,11 +6,10 @@ MINILIBX = https://github.com/42paris/minilibx-linux.git
 MLIBX_PATH = minilibx
 LIBFT = git@github.com:sneshev/libft_42.git
 LIBFT_PATH = libft
-all:  libft $(NAME) #mlibx 
+all:  libft mlibx $(NAME)
 
 mlibx: 
-	@[ -d "$(MLIBX_PATH)" ] || git clone $(MINILIBX) $(MLIBX_PATH);
-	@cd $(MLIBX_PATH) && ./configure
+	@[ -d "$(MLIBX_PATH)" ] || (git clone $(MINILIBX) $(MLIBX_PATH) && cd $(MLIBX_PATH) && make)
 
 libft:
 	@[ -d "$(LIBFT_PATH)" ] || git clone $(LIBFT) $(LIBFT_PATH);
@@ -26,11 +25,9 @@ $(OBJS_DIR):
 $(OBJS_DIR)/%.o: src/%.c | $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
-# Include libft in the linking process
-LIBS = -L$(LIBFT_PATH) -lft
+LIBS = -L$(LIBFT_PATH) -lft -L$(MLIBX_PATH) -lmlx -lXext -lX11
 
-# Ensure libft is built before linking
-$(NAME): $(OBJS) libft
+$(NAME): $(OBJS) libft mlibx
 	$(CC) $(OBJS) $(LIBS) -o $(NAME)
 
 fclean:

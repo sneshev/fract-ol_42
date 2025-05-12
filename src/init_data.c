@@ -40,7 +40,7 @@ bool is_valid_input(char *str)
 }
 
 
-t_data *init_data(int argc, char *argv[])
+t_data *init_fract_and_mlx_data(int argc, char *argv[])
 {
     if (argc == 2)
     {

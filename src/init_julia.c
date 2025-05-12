@@ -2,6 +2,7 @@
 
 static t_data *init_points(t_data *data, char *c_real, char *c_imag)
 {
+    data->type = JULIA;
     data->z = (double *)malloc(2 * sizeof(int));    
     if (!data->z)
         return (free(data), NULL);    
