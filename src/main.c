@@ -17,7 +17,7 @@ int main()
     if (!init_window_and_mlx(data))
         return (1);
     print_coordinates(data);
-    mlx_loop(data->mlx);
+    // mlx_loop(data->mlx);
 
     free_data(data);
 }
