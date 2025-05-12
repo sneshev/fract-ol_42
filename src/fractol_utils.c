@@ -17,7 +17,6 @@ void free_data(t_data *data)
         mlx_destroy_display(data->mlx);
         free(data->mlx);
     }
-
     if (data)
         free(data);
 }
