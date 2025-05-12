@@ -33,9 +33,10 @@ typedef struct s_data
 
 
 // initialize
-t_data *init_fract_and_mlx_data(int argc, char *argv[]);
+t_data *init_fract(int argc, char *argv[]);
 t_data *init_mandelbrot(void);
 t_data *init_julia(char *c_real, char *c_imag);
+int     init_window_and_mlx(t_data *data);
 
 // utils
 void free_data(t_data *data);

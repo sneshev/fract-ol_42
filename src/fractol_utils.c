@@ -6,6 +6,12 @@ void free_data(t_data *data)
         free(data->z);
     if (data->c)
         free(data->c);
+    if (data->img)
+        mlx_destroy_image(data->mlx, data->img);
+    if (data->win)
+        mlx_destroy_window(data->mlx, data->win);
+    if (data->mlx)
+        mlx_destroy_display(data->mlx);
     if (data)
         free(data);
 }

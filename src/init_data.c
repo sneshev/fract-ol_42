@@ -39,8 +39,21 @@ bool is_valid_input(char *str)
     return (false);
 }
 
+int init_window_and_mlx(t_data *data)
+{
+    data->mlx = (void *)mlx_init();
+    if (!data->mlx)
+        return (0);
+    data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "Fract-ol");
+    if (!data->win)
+        return (0);
+    data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+    if (!data->img)
+        return (0);
+    return 1;
+}
 
-t_data *init_fract_and_mlx_data(int argc, char *argv[])
+t_data *init_fract(int argc, char *argv[])
 {
     if (argc == 2)
     {

@@ -11,11 +11,13 @@ int main()
 
     t_data *data;
 
-    data = init_fract_and_mlx_data(argc, argv);
+    data = init_fract(argc, argv);
     if (!data)
         return (printf("invalid data\n"), 1);
+    if (!init_window_and_mlx(data))
+        return (1);
     print_coordinates(data);
-
+    mlx_loop(data->mlx);
 
     free_data(data);
 }

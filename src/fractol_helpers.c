@@ -5,7 +5,7 @@ void print_coordinates(t_data *data)
     printf("type: ");
     if (data->type == MANDELBROT)
         printf("mandelbrot\n");
-    else
+    else if (data->type == JULIA)
         printf("julia\n");
     printf("z_real -> %f\n", data->z[X]);
     printf("z_imag -> %f\n", data->z[Y]);
