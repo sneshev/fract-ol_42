@@ -16,8 +16,8 @@
 # define Y 1
 
 # define ITERATIONS 500
-# define HEIGHT 500
-# define WIDTH 500
+# define HEIGHT 1000
+# define WIDTH 1000
 
 
 typedef struct s_img_info
@@ -58,6 +58,7 @@ double atod(char *str);
 
 //helpers
 void print_coordinates(t_data *data);
+void print_data(t_data *data);
 
 
 #endif
