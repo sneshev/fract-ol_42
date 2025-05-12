@@ -17,7 +17,6 @@ int main()
     if (!init_minilibx(data))
         return (1);
 
-    printf("I am in ");
     mlx_loop(data->mlx);
 
     // free_data(data);

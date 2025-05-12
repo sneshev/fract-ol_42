@@ -1,5 +1,9 @@
 #include "fractol.h"
-
+#define ESC 65307 
+#define UP 65362
+#define DOWN 65364
+#define LEFT 65361
+#define RIGHT 65363
 
 bool is_num(char c)
 {
@@ -39,15 +43,28 @@ bool is_valid_input(char *str)
     return (false);
 }
 
+void move(int direction)
+{
+    if (direction == UP)
+        printf("move up\n"); fflush(NULL); // REMOVE PRINTF
+    if (direction == DOWN)
+        printf("move down\n"); fflush(NULL); // REMOVE PRINTF
+    if (direction == LEFT)
+        printf("move left\n"); fflush(NULL); // REMOVE PRINTF
+    if (direction == RIGHT)
+        printf("move right\n"); fflush(NULL); // REMOVE PRINTF
+}
+
 int set_keyhooks(int key, void *data_ptr)
 {
     t_data data;
 
     data = *(t_data *)data_ptr;
-    printf("LOVE "); fflush(NULL);
-    if (key == 65307)
+    if (key >= LEFT && key <= DOWN)
+        move(key);
+    if (key == ESC)
     {
-        printf ("with M I T A N I !!! 💝 💝 💝"); fflush(NULL);
+        printf ("window closed\n"); fflush(NULL); // REMOVE PRINTF
         free_data(data_ptr);
         exit(0);
     }
