@@ -14,10 +14,12 @@ int main()
     data = init_fract(argc, argv);
     if (!data)
         return (printf("invalid data\n"), 1);
+    
     if (!init_minilibx(data))
-        return (1);
+        return (free(data), 1);
+
+    if (!draw_fractol(data))
+        return (free(data), 1);
 
     mlx_loop(data->mlx);
-
-    // free_data(data);
 }

@@ -20,11 +20,22 @@
 # define WIDTH 500
 
 
+typedef struct s_img_info
+{
+    int     bpp;
+    int     line_length;
+    int     endian;
+    char    *addr;
+}   t_img_info;
+
+
 typedef struct s_data
 {
     void   *mlx;
     void   *win;
     void   *img;
+    t_img_info *img_info;
+
 
     int            type;
     double         *z;
@@ -38,16 +49,15 @@ t_data *init_mandelbrot(void);
 t_data *init_julia(char *c_real, char *c_imag);
 int     init_minilibx(t_data *data);
 
+//fractol
+int draw_fractol(t_data *data);
+
 // utils
 void free_data(t_data *data);
 double atod(char *str);
 
 //helpers
 void print_coordinates(t_data *data);
-
-
-
-
 
 
 #endif

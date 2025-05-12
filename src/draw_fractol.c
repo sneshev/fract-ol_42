@@ -27,3 +27,8 @@ void calculate_fractol()
 {
 
 }
+
+int draw_fractol(t_data *data)
+{
+
+}
