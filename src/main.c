@@ -14,10 +14,11 @@ int main()
     data = init_fract(argc, argv);
     if (!data)
         return (printf("invalid data\n"), 1);
-    if (!init_window_and_mlx(data))
+    if (!init_minilibx(data))
         return (1);
-    print_coordinates(data);
-    // mlx_loop(data->mlx);
 
-    free_data(data);
+    printf("I am in ");
+    mlx_loop(data->mlx);
+
+    // free_data(data);
 }

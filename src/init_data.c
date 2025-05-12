@@ -39,7 +39,21 @@ bool is_valid_input(char *str)
     return (false);
 }
 
-int init_window_and_mlx(t_data *data)
+int set_keyhooks(int key, void *data_ptr)
+{
+    t_data data;
+
+    data = *(t_data *)data_ptr;
+    printf("LOVE "); fflush(NULL);
+    if (key == 65307)
+    {
+        printf ("with M I T A N I !!! 💝 💝 💝"); fflush(NULL);
+        free_data(data_ptr);
+        exit(0);
+    }
+}
+
+int init_minilibx(t_data *data)
 {
     data->mlx = (void *)mlx_init();
     if (!data->mlx)
@@ -50,6 +64,7 @@ int init_window_and_mlx(t_data *data)
     data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
     if (!data->img)
         return (0);
+    mlx_key_hook(data->win, set_keyhooks, data);
     return 1;
 }
 
