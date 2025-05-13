@@ -17,9 +17,9 @@
 # define WIDTH 1000
 
 # define MIN_REAL -2.0
-# define MIN_IMAG -2.0
-# define MAX_REAL  2.0
-# define MAX_IMAG  2.0
+# define MAX_REAL  1.0
+# define MIN_IMAG -1.5
+# define MAX_IMAG  1.5
 
 # define X 0
 # define Y 1
