@@ -43,9 +43,11 @@ static int calculate_point(double *c)
 
 int find_color(int iterations)
 {
+    if (iterations < 6)
+        return 0xFF0000 + iterations * 99;
     if (iterations == ITERATIONS)
-        return 0x000000; // Black (inside set)
-    return 0xFF0000 + iterations * 50; // Shade of red (outside)
+        return 0x000000;
+    return 0xFF0000 + iterations * 50;
 }
 
 int draw_fractol(t_data *data) // MANDELBROT
