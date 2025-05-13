@@ -41,16 +41,40 @@ static int calculate_point(double *c)
     return (count);
 }
 
+int find_color(int iterations)
+{
+    if (iterations == ITERATIONS)
+        return 0x000000; // Black (inside set)
+    return 0xFF0000 + iterations * 50; // Shade of red (outside)
+}
+
 int draw_fractol(t_data *data) // MANDELBROT
 {
     double step[2];
+    int pix_color;
+    int x;
+    int y;
 
-    step[X] = 4.0 / WIDTH;
-    step[Y] = 4.0 / HEIGHT;
-    for (int y = 0; y < WIDTH; y)
-
+    step[X] = (MAX_REAL - MIN_REAL) / WIDTH;
+    step[Y] = (MAX_IMAG- MIN_IMAG) / HEIGHT;
+    x = 0;
+    y = 0;
+    while (y < HEIGHT)
+    {
+        data->c[Y] = MIN_IMAG + y * step[Y];
+        while (x < WIDTH)
+        {
+            data->c[X] = MIN_REAL + x * step[X];
+            pix_color = find_color(calculate_point(data->c));
+            put_image_pixel(data, x, y, pix_color);
+            x++;
+        }
+        y++;
+        x = 0;
+    }
 
 
 
     mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+    return (1);
 }

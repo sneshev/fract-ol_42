@@ -12,12 +12,17 @@
 # define MANDELBROT 0
 # define JULIA 1
 
-# define X 0
-# define Y 1
-
 # define ITERATIONS 500
 # define HEIGHT 1000
 # define WIDTH 1000
+
+# define MIN_REAL -2.0
+# define MIN_IMAG -2.0
+# define MAX_REAL  2.0
+# define MAX_IMAG  2.0
+
+# define X 0
+# define Y 1
 
 
 typedef struct s_img_info
