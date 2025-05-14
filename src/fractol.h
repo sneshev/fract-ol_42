@@ -15,7 +15,7 @@
 # define ITERATIONS 500
 # define HEIGHT 1000
 # define WIDTH 1000
-# define ZOOM 0.95
+# define ZOOM 0.7
 
 # define MIN_REAL -2.0
 # define MAX_REAL  1.0

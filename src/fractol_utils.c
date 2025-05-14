@@ -2,10 +2,6 @@
 
 void free_data(t_data *data)
 {
-    if (data->z)
-        free(data->z);
-    if (data->c)
-        free(data->c);
     if (data->img_info)
         free(data->img_info);
     if (data->img)
