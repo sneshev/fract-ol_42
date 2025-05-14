@@ -29,7 +29,7 @@ void scroll(t_data *data, double zoom)
     data->range_min[Y] = center[Y] - new_range[Y] / 2.0;
     data->range_max[Y] = center[Y] + new_range[Y] / 2.0;
 
-    draw_fractol_mandelbrot(data);
+    draw_fractol(data);
 }
 
 void move_center(t_data *data, double raw_mouse_x, double raw_mouse_y)
@@ -50,7 +50,7 @@ void move_center(t_data *data, double raw_mouse_x, double raw_mouse_y)
     data->range_min[Y] = mouse_pos[Y] - (range[MAX][Y] - range[MIN][Y]) / 2.0;
     data->range_max[Y] = mouse_pos[Y] + (range[MAX][Y] - range[MIN][Y]) / 2.0;
 
-    draw_fractol_mandelbrot(data);
+    draw_fractol(data);
 }
 
 int set_mouse_events(int button, int mouse_x, int mouse_y, void *data_ptr)
@@ -92,6 +92,11 @@ int set_keyhooks(int key, void *data_ptr)
         move_center(data, WIDTH / 2 - WIDTH * MOVE, HEIGHT / 2);
     if (key == RIGHT)
         move_center(data, WIDTH / 2 + WIDTH * MOVE, HEIGHT / 2);
+    if (key >= 48 && key <= 57)
+    {
+        data->color_set = key - 48;
+        draw_fractol(data);
+    }
 }
 
 void mlx_event_handle(t_data *data)

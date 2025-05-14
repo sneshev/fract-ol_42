@@ -17,6 +17,15 @@ int colors_tropical(int iterations)
     return RED + iterations * 50;
 }
 
+int colors_test(int iterations)
+{
+    if (iterations < 6)
+        return GREEN + iterations * 99;
+    if (iterations == ITERATIONS)
+        return 0x000000;
+    return GREEN + iterations * 50;
+}
+
 int colors_basic(int iterations)
 {
 	if (iterations == ITERATIONS)
@@ -30,4 +39,6 @@ int find_colors(int iterations, int color_set)
 		return (colors_basic(iterations));
 	if (color_set == TROPICAL)
 	    return (colors_tropical(iterations));
+	if (color_set == 2)
+		return (colors_test(iterations));
 }

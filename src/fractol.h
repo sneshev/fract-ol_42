@@ -13,6 +13,8 @@
 # define JULIA 1
 
 # define ITERATIONS 500
+# define COLOR_SET 0
+
 # define HEIGHT 1000
 # define WIDTH 1000
 
@@ -42,9 +44,10 @@ typedef struct s_data
     void   *mlx;
     void   *win;
     void   *img;
-    t_img_info *img_info;
+    t_img_info*img_info;
 
 
+    int            color_set;
     int            type;
     double         z[2];
     double         c[2];
@@ -54,24 +57,26 @@ typedef struct s_data
 
 
 // initialize
-t_data *init_fract(int argc, char *argv[]);
-t_data *init_mandelbrot(void);
-t_data *init_julia(char *c_real, char *c_imag);
+t_data  *init_fract(int argc, char *argv[]);
+t_data  *init_julia(char *c_real, char *c_imag);
 int     init_minilibx(t_data *data);
 
-//fractol
-int draw_fractol_mandelbrot(t_data *data);
-void mlx_event_handle(t_data *data);
-int find_colors(int iterations, int color_set);
+//fractols
+int     draw_fractol(t_data *data);
+void    mlx_event_handle(t_data *data);
+int     find_colors(int iterations, int color_set);
 
+//mandelbrot
+t_data  *init_mandelbrot(void);
+int     draw_mandelbrot(t_data *data);
 
 // utils
-void free_data(t_data *data);
-double atod(char *str);
+void    free_data(t_data *data);
+double  atod(char *str);
 
 //helpers
-void print_coordinates(t_data *data);
-void print_data(t_data *data);
+void    print_coordinates(t_data *data);
+void    print_data(t_data *data);
 
 
 #endif

@@ -18,7 +18,7 @@ int main()
     if (!init_minilibx(data))
         return (free(data), 1);
 
-    if (!draw_fractol_mandelbrot(data))
+    if (!draw_fractol(data))
         return (free(data), 1);
 
     mlx_event_handle(data);
