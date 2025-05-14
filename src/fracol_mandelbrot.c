@@ -6,7 +6,7 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:17:54 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 14:21:24 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/14 16:30:25 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	put_image_pixel(t_data *data, int x, int y, int color)
 	addr = data->img_info->addr;
 	bpp = data->img_info->bpp;
 	line_length = data->img_info->line_length;
-	pixel = addr + (y * line_length + x * (bpp / 8));
+	pixel = (char *)addr + (y * line_length + x * (bpp / 8));
 	*(unsigned int *)pixel = color;
 }
 
@@ -88,8 +88,6 @@ t_data	*init_mandelbrot(void)
 		return (NULL);
 	data->type = MANDELBROT;
 	data->color_set = 1;
-	data->z[X] = 0.0;
-	data->z[Y] = 0.0;
 	data->c[X] = 0.0;
 	data->c[Y] = 0.0;
 	adjust_fractal_bounds(data);

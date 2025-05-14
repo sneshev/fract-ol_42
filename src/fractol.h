@@ -6,7 +6,7 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:22:23 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 14:24:37 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/14 16:18:09 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@
 # define MOVE 0.05
 
 # define MIN_REAL -2.0
-# define MAX_REAL  1.0
-# define MIN_IMAG -1.5
-# define MAX_IMAG  1.5
+# define MAX_REAL  2.0
+# define MIN_IMAG -2.0
+# define MAX_IMAG  2.0
 
 # define X 0
 # define Y 1
@@ -55,7 +55,6 @@ typedef struct s_data
 	t_img_info	*img_info;
 	int			color_set;
 	int			type;
-	double		z[2];
 	double		c[2];
 	double		range_min[2];
 	double		range_max[2];
@@ -69,6 +68,7 @@ int		init_minilibx(t_data *data);
 int		draw_fractol(t_data *data);
 void	mlx_event_handle(t_data *data);
 int		find_colors(int iterations, int color_set);
+void	put_image_pixel(t_data *data, int x, int y, int color);
 
 //mandelbrot
 t_data	*init_mandelbrot(void);
@@ -76,6 +76,7 @@ int		draw_mandelbrot(t_data *data);
 
 //julia
 t_data	*init_julia(char *c_real, char *c_imag);
+int		draw_julia(t_data *data);
 
 // utils
 void	adjust_fractal_bounds(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:32:27 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 14:33:09 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/14 15:44:07 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ int	draw_fractol(t_data *data)
 {
 	if (data->type == MANDELBROT)
 		return (draw_mandelbrot(data));
+	if (data->type == JULIA)
+		return (draw_julia(data));
 	return (-1);
+
 }
 
 t_data	*explanational_message(void)

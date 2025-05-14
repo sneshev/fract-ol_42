@@ -6,14 +6,18 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:29:11 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 14:29:38 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/14 16:30:42 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	main(int argc, char *argv[])
+int	main()
 {
+	int argc = 2;
+	char *argv[argc];
+	argv[0] = "./fractol";
+	argv[1] = "julia";
 	t_data	*data;
 
 	data = init_data(argc, argv);

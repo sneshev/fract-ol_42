@@ -6,33 +6,79 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:33:53 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 14:33:54 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/14 16:32:52 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "fractol.h"
+#include "fractol.h"
+#define TEMP 3
 
-// t_data *init_julia(char *c_real, char *c_imag)
-// {
-// 	t_data *data;
+static int	calculate_point_julia(double x, double y, double c[2]) // ??????
+{
+	int		count;
+	double	temp;
 
-// 	data = (t_data *)malloc(sizeof(t_data));
-// 	if (!data)
-// 		return (NULL);
-// 	data->type = JULIA;
-// 	data->color_set = 1;
-// 	data->z[X] = 0.0;
-// 	data->z[Y] = 0.0;
-//     if(c_real == NULL || c_imag == NULL)
-//     {
-//         data->c[X] = 1.23;
-// 		data->c[Y] = -1.22;
-//     }
-// 	else
-// 	{
-// 		data->c[X] = atod(c_real);
-// 		data->c[Y] = atod(c_imag);
-// 	}
-// 	adjust_fractal_bounds(data);
-// 	return (data);
-// }
+	count = 0;
+	while (count < ITERATIONS)
+	{
+		temp = x * x - y * y + c[X];
+		y = 2 * x * y + c[Y];
+		x = temp;
+		if (x * x + y * y >= 4)
+			return (count);
+		count++;
+	}
+	return (count);
+}
+
+int draw_julia(t_data *data)
+{
+	double	step[2];
+	int		pix_color;
+	int		coordinates[2];
+	double	x;
+	double	y;
+
+	step[X] = (data->range_max[X] - data->range_min[X]) / WIDTH;
+	step[Y] = (data->range_max[Y] - data->range_min[Y]) / HEIGHT;
+	coordinates[X] = 0;
+	coordinates[Y] = 0;
+	while (coordinates[Y] < HEIGHT)
+	{
+		while (coordinates[X] < WIDTH)
+		{
+			x = data->range_min[X] + (coordinates[X] * step[X]);
+			y = data->range_min[Y] + (coordinates[Y] * step[Y]);
+			pix_color = find_colors(calculate_point_julia(x, y, data->c), data->color_set);
+			put_image_pixel(data, coordinates[X], coordinates[Y], pix_color);
+			coordinates[X]++;
+		}
+		coordinates[Y]++;
+		coordinates[X] = 0;
+	}
+	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+	return (1);
+}
+
+t_data *init_julia(char *c_real, char *c_imag)
+{
+	t_data *data;
+
+	data = (t_data *)malloc(sizeof(t_data));
+	if (!data)
+		return (NULL);
+	data->type = JULIA;
+	data->color_set = 1;
+    if(c_real == NULL || c_imag == NULL)
+    {
+        data->c[X] = -0.7;
+		data->c[Y] = 0.27015;
+    }
+	else
+	{
+		data->c[X] = atod(c_real);
+		data->c[Y] = atod(c_imag);
+	}
+	adjust_fractal_bounds(data);
+	return (data);
+}

@@ -6,11 +6,35 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:28:02 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 14:28:28 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/14 15:47:53 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+int	init_minilibx(t_data *data)
+{
+	t_img_info	*img_info;
+
+	data->mlx = (void *)mlx_init();
+	if (!data->mlx)
+		return (0);
+	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "Fract-ol");
+	if (!data->win)
+		return (0);
+	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	if (!data->img)
+		return (0);
+	data->img_info = (t_img_info *)malloc(sizeof (t_img_info));
+	if (!data->img_info)
+		return (0);
+	img_info = data->img_info;
+	img_info->addr = mlx_get_data_addr(data->img,
+			&img_info->bpp, &img_info->line_length, &img_info->endian);
+	if (!img_info->addr || !img_info->bpp || !img_info->line_length)
+		return (0);
+	return (1);
+}
 
 bool	is_num(char c)
 {
@@ -54,9 +78,9 @@ t_data	*init_data(int argc, char *argv[])
 {
 	if (argc == 2)
 	{
-		if (ft_strncmp(argv[1], "julia", 6) == 0)
+		if (!ft_strncmp(argv[1], "julia", 6))
 			return (init_julia(NULL, NULL));
-		if (ft_strncmp(argv[1], "mandelbrot", 12) == 0)
+		if (!ft_strncmp(argv[1], "mandelbrot", 12))
 			return (init_mandelbrot());
 	}
 	if (argc == 4 && is_valid_input(argv[2]) && is_valid_input(argv[3]))
@@ -65,28 +89,4 @@ t_data	*init_data(int argc, char *argv[])
 			init_julia(argv[2], argv[3]);
 	}
 	return (explanational_message());
-}
-
-int	init_minilibx(t_data *data)
-{
-	t_img_info	*img_info;
-
-	data->mlx = (void *)mlx_init();
-	if (!data->mlx)
-		return (0);
-	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "Fract-ol");
-	if (!data->win)
-		return (0);
-	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	if (!data->img)
-		return (0);
-	data->img_info = (t_img_info *)malloc(sizeof (t_img_info));
-	if (!data->img_info)
-		return (0);
-	img_info = data->img_info;
-	img_info->addr = mlx_get_data_addr(data->img,
-			&img_info->bpp, &img_info->line_length, &img_info->endian);
-	if (!img_info->addr || !img_info->bpp || !img_info->line_length)
-		return (0);
-	return (1);
 }
