@@ -69,29 +69,6 @@ int draw_mandelbrot(t_data *data)
     return (1);
 }
 
-
-static void adjust_fractal_bounds(t_data *data)
-{
-    double aspect_ratio;
-    double range[2];
-    double center[2];
-
-    aspect_ratio = (double)WIDTH / (double)HEIGHT;
-    center[X] = (MAX_REAL + MIN_REAL) / 2.0;
-    center[Y] = (MAX_IMAG + MIN_IMAG) / 2.0;
-    range[X] = MAX_REAL - MIN_REAL;
-    range[Y] = MAX_IMAG - MIN_IMAG;
-    if (WIDTH > HEIGHT)
-        range[X] = range[Y] * aspect_ratio;
-    else if (WIDTH < HEIGHT)
-        range[Y] = range[X] / aspect_ratio;
-    
-    data->range_min[X] = center[X] - range[X] / 2.0;
-    data->range_max[X] = center[X] + range[X] / 2.0;
-    data->range_min[Y] = center[Y] - range[Y] / 2.0;
-    data->range_max[Y] = center[Y] + range[Y] / 2.0;
-}
-
 t_data *init_mandelbrot(void)
 {
     t_data *data;
@@ -100,11 +77,11 @@ t_data *init_mandelbrot(void)
     if (!data)
         return (NULL);
     data->type = MANDELBROT;
-    data->color_set = 0;
-    data->z[X] = 0.0; //idk what to initialize
-    data->z[Y] = 0.0; //idk what to initialize
-    data->c[X] = 0.0; //idk what to initialize
-    data->c[Y] = 0.0; //idk what to initialize
+    data->color_set = 1;
+    data->z[X] = 0.0;
+    data->z[Y] = 0.0;
+    data->c[X] = 0.0;
+    data->c[Y] = 0.0;
     adjust_fractal_bounds(data);
     return (data);
 }

@@ -57,8 +57,7 @@ typedef struct s_data
 
 
 // initialize
-t_data  *init_fract(int argc, char *argv[]);
-t_data  *init_julia(char *c_real, char *c_imag);
+t_data  *init_data(int argc, char *argv[]);
 int     init_minilibx(t_data *data);
 
 //fractols
@@ -70,7 +69,13 @@ int     find_colors(int iterations, int color_set);
 t_data  *init_mandelbrot(void);
 int     draw_mandelbrot(t_data *data);
 
+//julia
+t_data *init_julia(char *c_real, char *c_imag);
+
+
 // utils
+void adjust_fractal_bounds(t_data *data);
+t_data *explanational_message(void);
 void    free_data(t_data *data);
 double  atod(char *str);
 

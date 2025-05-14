@@ -11,7 +11,7 @@ int main()
 
     t_data *data;
 
-    data = init_fract(argc, argv);
+    data = init_data(argc, argv);
     if (!data)
         return (printf("invalid data\n"), 1);
     

@@ -1,14 +1,14 @@
 #include "fractol.h"
 
 #define ESC 65307 
-#define W 119
-#define S 83
-#define A 65
-#define D 68
 #define LEFT 65361
 #define UP 65362
 #define RIGHT 65363
 #define DOWN 65364
+#define W 119
+#define S 83
+#define A 65
+#define D 68
 
 #define MIN 0
 #define MAX 1
@@ -76,7 +76,6 @@ int set_keyhooks(int key, void *data_ptr)
     data = (t_data *)data_ptr;
     if (key == ESC)
     {
-        write(1, "window closed\n", 15);
         free_data(data_ptr);
         exit(0);
     }

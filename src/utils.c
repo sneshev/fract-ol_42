@@ -1,5 +1,27 @@
 #include "fractol.h"
 
+void adjust_fractal_bounds(t_data *data)
+{
+    double aspect_ratio;
+    double range[2];
+    double center[2];
+
+    aspect_ratio = (double)WIDTH / (double)HEIGHT;
+    center[X] = (MAX_REAL + MIN_REAL) / 2.0;
+    center[Y] = (MAX_IMAG + MIN_IMAG) / 2.0;
+    range[X] = MAX_REAL - MIN_REAL;
+    range[Y] = MAX_IMAG - MIN_IMAG;
+    if (WIDTH > HEIGHT)
+        range[X] = range[Y] * aspect_ratio;
+    else if (WIDTH < HEIGHT)
+        range[Y] = range[X] / aspect_ratio;
+    
+    data->range_min[X] = center[X] - range[X] / 2.0;
+    data->range_max[X] = center[X] + range[X] / 2.0;
+    data->range_min[Y] = center[Y] - range[Y] / 2.0;
+    data->range_max[Y] = center[Y] + range[Y] / 2.0;
+}
+
 void free_data(t_data *data)
 {
     if (data->img_info)
@@ -15,6 +37,20 @@ void free_data(t_data *data)
     }
     if (data)
         free(data);
+}
+
+int draw_fractol(t_data *data)
+{
+    if (data->type == MANDELBROT)
+        return (draw_mandelbrot(data));
+    return -1;
+}
+
+t_data *explanational_message(void)
+{
+    printf("write the explanational message haha\n");
+    printf("to run: ./fracol ..");
+    return (NULL);
 }
 
 static double atod_fractional(char *str)
