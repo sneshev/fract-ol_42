@@ -59,6 +59,7 @@ int     init_minilibx(t_data *data);
 
 //fractol
 int draw_fractol(t_data *data);
+void mlx_event_handle(t_data *data);
 
 // utils
 void free_data(t_data *data);

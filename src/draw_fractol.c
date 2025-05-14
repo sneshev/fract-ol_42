@@ -53,6 +53,7 @@ int find_color(int iterations)
 int draw_fractol(t_data *data) // MANDELBROT
 {
     double step[2];
+    double c[2];
     int pix_color;
     int x;
     int y;
@@ -63,11 +64,11 @@ int draw_fractol(t_data *data) // MANDELBROT
     y = 0;
     while (y < HEIGHT)
     {
-        data->c[Y] = data->range_min[Y] + y * step[Y];
+        c[Y] = data->range_min[Y] + y * step[Y];
         while (x < WIDTH)
         {
-            data->c[X] = data->range_min[X] + x * step[X];
-            pix_color = find_color(calculate_point(data->c));
+            c[X] = data->range_min[X] + x * step[X];
+            pix_color = find_color(calculate_point(c));
             put_image_pixel(data, x, y, pix_color);
             x++;
         }

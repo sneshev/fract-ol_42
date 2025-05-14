@@ -1,9 +1,5 @@
 #include "fractol.h"
-#define ESC 65307 
-#define UP 65362
-#define DOWN 65364
-#define LEFT 65361
-#define RIGHT 65363
+
 
 bool is_num(char c)
 {
@@ -43,33 +39,6 @@ bool is_valid_input(char *str)
     return (false);
 }
 
-void move(int direction)
-{
-    if (direction == UP)
-        printf("move up\n"); fflush(NULL); // REMOVE PRINTF
-    if (direction == DOWN)
-        printf("move down\n"); fflush(NULL); // REMOVE PRINTF
-    if (direction == LEFT)
-        printf("move left\n"); fflush(NULL); // REMOVE PRINTF
-    if (direction == RIGHT)
-        printf("move right\n"); fflush(NULL); // REMOVE PRINTF
-}
-
-int set_keyhooks(int key, void *data_ptr)
-{
-    t_data data;
-
-    data = *(t_data *)data_ptr;
-    if (key >= LEFT && key <= DOWN)
-        move(key);
-    if (key == ESC)
-    {
-        printf ("window closed\n"); fflush(NULL); // REMOVE PRINTF
-        free_data(data_ptr);
-        exit(0);
-    }
-}
-
 int init_minilibx(t_data *data)
 {
     t_img_info  *img_info;
@@ -89,7 +58,7 @@ int init_minilibx(t_data *data)
     img_info->addr = mlx_get_data_addr(data->img, &img_info->bpp, &img_info->line_length, &img_info->endian);
     if (!img_info->addr || !img_info->bpp || !img_info->line_length)
         return (0);
-    mlx_key_hook(data->win, set_keyhooks, data);
+
     return 1;
 }
 
