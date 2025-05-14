@@ -50,7 +50,7 @@ int find_color(int iterations)
     return 0xFF0000 + iterations * 50;
 }
 
-int draw_fractol(t_data *data) // MANDELBROT
+int draw_fractol_mandelbrot(t_data *data)
 {
     double step[2];
     double c[2];

@@ -15,7 +15,9 @@
 # define ITERATIONS 500
 # define HEIGHT 1000
 # define WIDTH 2000
+
 # define ZOOM 0.7
+# define MOVE 0.05
 
 # define MIN_REAL -2.0
 # define MAX_REAL  1.0
@@ -58,7 +60,7 @@ t_data *init_julia(char *c_real, char *c_imag);
 int     init_minilibx(t_data *data);
 
 //fractol
-int draw_fractol(t_data *data);
+int draw_fractol_mandelbrot(t_data *data);
 void mlx_event_handle(t_data *data);
 
 // utils
