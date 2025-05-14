@@ -2,10 +2,6 @@
 
 #define TEMP 2
 
-#define WHITE 0x00FFFFFF
-#define RED   0x00FF0000
-#define GREEN 0x0000FF00
-
 void put_image_pixel(t_data *data, int x, int y, int color)
 {
     void *addr;
@@ -30,25 +26,19 @@ static int calculate_point(double *c)
     count = 0;
     z[X] = 0;
     z[Y] = 0;
-    while (count++ < ITERATIONS)
+    while (count < ITERATIONS)
     {
         z[TEMP] = z[X] * z[X] - z[Y] * z[Y] + c[X];
         z[Y] = 2 * z[X] * z[Y] + c[Y];
         z[X] = z[TEMP];
         if (z[X] * z[X] + z[Y] * z[Y] >= 4)
             return (count);
-        }
+        count++;
+    }
+    
     return (count);
 }
 
-int find_color(int iterations)
-{
-    if (iterations < 6)
-        return 0xFF0000 + iterations * 99;
-    if (iterations == ITERATIONS)
-        return 0x000000;
-    return 0xFF0000 + iterations * 50;
-}
 
 int draw_fractol_mandelbrot(t_data *data)
 {
@@ -68,7 +58,7 @@ int draw_fractol_mandelbrot(t_data *data)
         while (x < WIDTH)
         {
             c[X] = data->range_min[X] + x * step[X];
-            pix_color = find_color(calculate_point(c));
+            pix_color = find_colors(calculate_point(c), 0);
             put_image_pixel(data, x, y, pix_color);
             x++;
         }

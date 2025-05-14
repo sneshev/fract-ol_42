@@ -14,7 +14,7 @@
 
 # define ITERATIONS 500
 # define HEIGHT 1000
-# define WIDTH 2000
+# define WIDTH 1000
 
 # define ZOOM 0.7
 # define MOVE 0.05
@@ -62,6 +62,8 @@ int     init_minilibx(t_data *data);
 //fractol
 int draw_fractol_mandelbrot(t_data *data);
 void mlx_event_handle(t_data *data);
+int find_colors(int iterations, int color_set);
+
 
 // utils
 void free_data(t_data *data);

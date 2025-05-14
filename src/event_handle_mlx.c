@@ -28,6 +28,7 @@ void scroll(t_data *data, double zoom)
     data->range_max[X] = center[X] + new_range[X] / 2.0;
     data->range_min[Y] = center[Y] - new_range[Y] / 2.0;
     data->range_max[Y] = center[Y] + new_range[Y] / 2.0;
+
     draw_fractol_mandelbrot(data);
 }
 
@@ -43,10 +44,12 @@ void move_center(t_data *data, double raw_mouse_x, double raw_mouse_y)
     range[MAX][X] = data->range_max[X];
     range[MIN][Y] = data->range_min[Y];
     range[MAX][Y] = data->range_max[Y];
+
     data->range_min[X] = mouse_pos[X] - (range[MAX][X] - range[MIN][X]) / 2.0;
     data->range_max[X] = mouse_pos[X] + (range[MAX][X] - range[MIN][X]) / 2.0;
     data->range_min[Y] = mouse_pos[Y] - (range[MAX][Y] - range[MIN][Y]) / 2.0;
     data->range_max[Y] = mouse_pos[Y] + (range[MAX][Y] - range[MIN][Y]) / 2.0;
+
     draw_fractol_mandelbrot(data);
 }
 
