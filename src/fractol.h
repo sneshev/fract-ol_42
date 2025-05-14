@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/14 14:22:23 by sneshev           #+#    #+#             */
+/*   Updated: 2025/05/14 14:24:37 by sneshev          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -6,8 +18,6 @@
 # include "../libft/libft.h"
 # include <stdbool.h>
 # include <math.h>
-
-
 
 # define MANDELBROT 0
 # define JULIA 1
@@ -29,59 +39,52 @@
 # define X 0
 # define Y 1
 
-
 typedef struct s_img_info
 {
-    int     bpp;
-    int     line_length;
-    int     endian;
-    char    *addr;
-}   t_img_info;
-
+	int		bpp;
+	int		line_length;
+	int		endian;
+	char	*addr;
+}	t_img_info;
 
 typedef struct s_data
 {
-    void   *mlx;
-    void   *win;
-    void   *img;
-    t_img_info*img_info;
-
-
-    int            color_set;
-    int            type;
-    double         z[2];
-    double         c[2];
-    double         range_min[2];
-    double         range_max[2];
-}   t_data;
-
+	void		*mlx;
+	void		*win;
+	void		*img;
+	t_img_info	*img_info;
+	int			color_set;
+	int			type;
+	double		z[2];
+	double		c[2];
+	double		range_min[2];
+	double		range_max[2];
+}	t_data;
 
 // initialize
-t_data  *init_data(int argc, char *argv[]);
-int     init_minilibx(t_data *data);
+t_data	*init_data(int argc, char *argv[]);
+int		init_minilibx(t_data *data);
 
 //fractols
-int     draw_fractol(t_data *data);
-void    mlx_event_handle(t_data *data);
-int     find_colors(int iterations, int color_set);
+int		draw_fractol(t_data *data);
+void	mlx_event_handle(t_data *data);
+int		find_colors(int iterations, int color_set);
 
 //mandelbrot
-t_data  *init_mandelbrot(void);
-int     draw_mandelbrot(t_data *data);
+t_data	*init_mandelbrot(void);
+int		draw_mandelbrot(t_data *data);
 
 //julia
-t_data *init_julia(char *c_real, char *c_imag);
-
+t_data	*init_julia(char *c_real, char *c_imag);
 
 // utils
-void adjust_fractal_bounds(t_data *data);
-t_data *explanational_message(void);
-void    free_data(t_data *data);
-double  atod(char *str);
+void	adjust_fractal_bounds(t_data *data);
+t_data	*explanational_message(void);
+void	free_data(t_data *data);
+double	atod(char *str);
 
 //helpers
-void    print_coordinates(t_data *data);
-void    print_data(t_data *data);
-
+void	print_coordinates(t_data *data);
+void	print_data(t_data *data);
 
 #endif
