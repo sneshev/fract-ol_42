@@ -6,7 +6,7 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:22:23 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 17:45:17 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/14 18:44:12 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 # define MANDELBROT 0
 # define JULIA 1
+# define BURNING_SHIP 2
 
 # define ITERATIONS 500
 # define COLOR_SET 0
@@ -79,6 +80,10 @@ void	draw_mandelbrot(t_data *data);
 t_data	*init_julia(char *c_real, char *c_imag);
 void	draw_julia(t_data *data);
 void	julia_change_c(t_data *data, int key);
+
+//burning ship
+void	draw_ship(t_data *data);
+t_data	*init_ship(void);
 
 // utils
 void	adjust_fractal_bounds(t_data *data);

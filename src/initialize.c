@@ -6,7 +6,7 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:28:02 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 15:47:53 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/14 18:36:00 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ bool	is_valid_input(char *str)
 	{
 		str++;
 		if (*str == '\0'
-			|| *str == '.' && *(str + 1) == '0' && !(*(str + 2)))
+			|| (*str == '.' && *(str + 1) == '0' && !(*(str + 2))))
 			return (true);
 	}
 	return (false);
@@ -82,6 +82,8 @@ t_data	*init_data(int argc, char *argv[])
 			return (init_julia(NULL, NULL));
 		if (!ft_strncmp(argv[1], "mandelbrot", 12))
 			return (init_mandelbrot());
+		if (!ft_strncmp(argv[1], "bship", 5))
+			return (init_ship());
 	}
 	if (argc == 4 && is_valid_input(argv[2]) && is_valid_input(argv[3]))
 	{

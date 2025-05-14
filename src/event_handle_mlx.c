@@ -6,7 +6,7 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:13:50 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 17:39:31 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/14 18:35:46 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	set_mouse_events(int button, int mouse_x, int mouse_y, void *data_ptr)
 		scroll(data, ZOOM);
 	if (button == 5)
 		scroll(data, 1 / ZOOM);
+	return (0);
 }
 
 int	set_keyhooks(int key, t_data *data)
