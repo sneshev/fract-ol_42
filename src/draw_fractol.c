@@ -30,14 +30,15 @@ static int calculate_point(double *c)
     count = 0;
     z[X] = 0;
     z[Y] = 0;
-    while (count++ < ITERATIONS)
+    while (count < ITERATIONS)
     {
         z[TEMP] = z[X] * z[X] - z[Y] * z[Y] + c[X];
         z[Y] = 2 * z[X] * z[Y] + c[Y];
         z[X] = z[TEMP];
         if (z[X] * z[X] + z[Y] * z[Y] >= 4)
             return (count);
-    }
+        count++;
+        }
     return (count);
 }
 
