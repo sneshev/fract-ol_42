@@ -1,6 +1,28 @@
 #include "fractol.h"
 #include "../minilibx/mlx.h"
 
+void adjust_fractal_bounds(t_data *data)
+{
+    double aspect_ratio;
+    double range[2];
+    double center[2];
+
+    aspect_ratio = (double)WIDTH / (double)HEIGHT;
+    center[X] = (MAX_REAL + MIN_REAL) / 2.0;
+    center[Y] = (MAX_IMAG + MIN_IMAG) / 2.0;
+    range[X] = MAX_REAL - MIN_REAL;
+    range[Y] = MAX_IMAG - MIN_IMAG;
+    if (WIDTH > HEIGHT)
+        range[X] = range[Y] * aspect_ratio;
+    else if (WIDTH < HEIGHT)
+        range[Y] = range[X] / aspect_ratio;
+    
+    data->range_min[X] = center[X] - range[X] / 2.0;
+    data->range_max[X] = center[X] + range[X] / 2.0;
+    data->range_min[Y] = center[Y] - range[Y] / 2.0;
+    data->range_max[Y] = center[Y] + range[Y] / 2.0;
+}
+
 static t_data *init_points(t_data *data)
 {
     data->type = MANDELBROT;
@@ -17,10 +39,8 @@ static t_data *init_points(t_data *data)
     data->c[X] = 0.0; //idk what to initialize
     data->c[Y] = 0.0; //idk what to initialize
 
-    data->range_min[X] = MIN_REAL;
-    data->range_max[X] = MAX_REAL;
-    data->range_min[Y] = MIN_IMAG;
-    data->range_max[Y] = MAX_IMAG;
+    adjust_fractal_bounds(data);
+
     return (data);
 }
 
