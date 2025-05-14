@@ -6,7 +6,7 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:17:54 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 16:30:25 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/14 17:38:45 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	calculate_point(double *c)
 	return (count);
 }
 
-int	draw_mandelbrot(t_data *data)
+void	draw_mandelbrot(t_data *data)
 {
 	double	step[2];
 	double	c[2];
@@ -76,7 +76,6 @@ int	draw_mandelbrot(t_data *data)
 		x = 0;
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
-	return (1);
 }
 
 t_data	*init_mandelbrot(void)

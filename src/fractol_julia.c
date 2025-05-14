@@ -6,12 +6,30 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:33:53 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 16:32:52 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/14 17:41:54 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#define TEMP 3
+#define A 97
+#define D 100
+#define Q 113
+#define E 101
+
+void	julia_change_c(t_data *data, int key)
+{
+	if (data->type != JULIA)
+		return ;
+	if (key == A)
+		data->c[X] -= ADJUST_RAT;
+	if (key == D)
+		data->c[X] += ADJUST_RAT;
+	if (key == Q)
+		data->c[Y] -= ADJUST_RAT;
+	if (key == E)
+		data->c[Y] += ADJUST_RAT;
+	draw_fractol(data);
+}
 
 static int	calculate_point_julia(double x, double y, double c[2]) // ??????
 {
@@ -31,7 +49,7 @@ static int	calculate_point_julia(double x, double y, double c[2]) // ??????
 	return (count);
 }
 
-int draw_julia(t_data *data)
+void	draw_julia(t_data *data)
 {
 	double	step[2];
 	int		pix_color;
@@ -49,7 +67,8 @@ int draw_julia(t_data *data)
 		{
 			x = data->range_min[X] + (coordinates[X] * step[X]);
 			y = data->range_min[Y] + (coordinates[Y] * step[Y]);
-			pix_color = find_colors(calculate_point_julia(x, y, data->c), data->color_set);
+			pix_color = find_colors
+				(calculate_point_julia(x, y, data->c), data->color_set);
 			put_image_pixel(data, coordinates[X], coordinates[Y], pix_color);
 			coordinates[X]++;
 		}
@@ -57,23 +76,22 @@ int draw_julia(t_data *data)
 		coordinates[X] = 0;
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
-	return (1);
 }
 
-t_data *init_julia(char *c_real, char *c_imag)
+t_data	*init_julia(char *c_real, char *c_imag)
 {
-	t_data *data;
+	t_data	*data;
 
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
 		return (NULL);
 	data->type = JULIA;
 	data->color_set = 1;
-    if(c_real == NULL || c_imag == NULL)
-    {
-        data->c[X] = -0.7;
+	if (c_real == NULL || c_imag == NULL)
+	{
+		data->c[X] = -0.7;
 		data->c[Y] = 0.27015;
-    }
+	}
 	else
 	{
 		data->c[X] = atod(c_real);

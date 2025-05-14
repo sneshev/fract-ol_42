@@ -6,7 +6,7 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:22:23 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 16:18:09 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/14 17:45:17 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 
 # define ZOOM 0.7
 # define MOVE 0.05
+# define ADJUST_RAT 0.01
 
 # define MIN_REAL -2.0
 # define MAX_REAL  2.0
@@ -65,18 +66,19 @@ t_data	*init_data(int argc, char *argv[]);
 int		init_minilibx(t_data *data);
 
 //fractols
-int		draw_fractol(t_data *data);
+void	draw_fractol(t_data *data);
 void	mlx_event_handle(t_data *data);
 int		find_colors(int iterations, int color_set);
 void	put_image_pixel(t_data *data, int x, int y, int color);
 
 //mandelbrot
 t_data	*init_mandelbrot(void);
-int		draw_mandelbrot(t_data *data);
+void	draw_mandelbrot(t_data *data);
 
 //julia
 t_data	*init_julia(char *c_real, char *c_imag);
-int		draw_julia(t_data *data);
+void	draw_julia(t_data *data);
+void	julia_change_c(t_data *data, int key);
 
 // utils
 void	adjust_fractal_bounds(t_data *data);

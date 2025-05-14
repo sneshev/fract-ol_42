@@ -6,7 +6,7 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:13:50 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 16:32:14 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/14 17:39:31 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@
 #define DOWN 65364
 #define W 119
 #define S 83
-#define A 65
-#define D 68
+#define A 97
+#define D 100
+#define Q 113
+#define E 101
 
 #define MIN 0
 #define MAX 1
@@ -74,14 +76,11 @@ int	set_mouse_events(int button, int mouse_x, int mouse_y, void *data_ptr)
 		scroll(data, 1 / ZOOM);
 }
 
-int	set_keyhooks(int key, void *data_ptr)
+int	set_keyhooks(int key, t_data *data)
 {
-	t_data	*data;
-
-	data = (t_data *)data_ptr;
 	if (key == ESC)
 	{
-		free_data(data_ptr);
+		free_data(data);
 		exit(0);
 	}
 	if (key == W)
@@ -101,6 +100,9 @@ int	set_keyhooks(int key, void *data_ptr)
 		data->color_set = key - 48;
 		draw_fractol(data);
 	}
+	if (key == D || key == A || key == Q || key == E)
+		julia_change_c(data, key);
+	return (1);
 }
 
 void	mlx_event_handle(t_data *data)
