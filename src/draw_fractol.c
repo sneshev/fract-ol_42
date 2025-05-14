@@ -30,14 +30,13 @@ static int calculate_point(double *c)
     count = 0;
     z[X] = 0;
     z[Y] = 0;
-    while (count < ITERATIONS)
+    while (count++ < ITERATIONS)
     {
         z[TEMP] = z[X] * z[X] - z[Y] * z[Y] + c[X];
         z[Y] = 2 * z[X] * z[Y] + c[Y];
         z[X] = z[TEMP];
         if (z[X] * z[X] + z[Y] * z[Y] >= 4)
             return (count);
-        count++;
         }
     return (count);
 }
@@ -58,16 +57,16 @@ int draw_fractol(t_data *data) // MANDELBROT
     int x;
     int y;
 
-    step[X] = (MAX_REAL - MIN_REAL) / WIDTH;
-    step[Y] = (MAX_IMAG- MIN_IMAG) / HEIGHT;
+    step[X] = (data->range_max[X] - data->range_min[X]) / WIDTH;
+    step[Y] = (data->range_max[Y] - data->range_min[Y]) / HEIGHT;
     x = 0;
     y = 0;
     while (y < HEIGHT)
     {
-        data->c[Y] = MIN_IMAG + y * step[Y];
+        data->c[Y] = data->range_min[Y] + y * step[Y];
         while (x < WIDTH)
         {
-            data->c[X] = MIN_REAL + x * step[X];
+            data->c[X] = data->range_min[X] + x * step[X];
             pix_color = find_color(calculate_point(data->c));
             put_image_pixel(data, x, y, pix_color);
             x++;
@@ -75,8 +74,6 @@ int draw_fractol(t_data *data) // MANDELBROT
         y++;
         x = 0;
     }
-
-
 
     mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
     return (1);

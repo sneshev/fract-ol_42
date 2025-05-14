@@ -14,10 +14,11 @@
 
 # define ITERATIONS 500
 # define HEIGHT 1000
-# define WIDTH 2000
+# define WIDTH 1000
+# define ZOOM 0.95
 
-# define MIN_REAL -4.0
-# define MAX_REAL  2.0
+# define MIN_REAL -2.0
+# define MAX_REAL  1.0
 # define MIN_IMAG -1.5
 # define MAX_IMAG  1.5
 
@@ -43,8 +44,10 @@ typedef struct s_data
 
 
     int            type;
-    double         *z;
-    double         *c;
+    double         z[2];
+    double         c[2];
+    double         range_min[2];
+    double         range_max[2];
 }   t_data;
 
 
