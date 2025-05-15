@@ -19,11 +19,8 @@ void	print_coordinates(t_data *data)
 		printf("mandelbrot\n");
 	else if (data->type == JULIA)
 		printf("julia\n");
-	if (data->c)
-	{
-		printf("c_real -> %f\n", data->c[X]);
-		printf("c_imag -> %f\n", data->c[Y]);
-	}
+	printf("c_real -> %f\n", data->c[X]);
+	printf("c_imag -> %f\n", data->c[Y]);
 }
 
 void	print_data2(t_data *data)

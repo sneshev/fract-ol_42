@@ -18,7 +18,7 @@
 #define RIGHT 65363
 #define DOWN 65364
 #define W 119
-#define S 83
+#define S 115
 #define A 97
 #define D 100
 #define Q 113
