@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_handle_mlx.c                                 :+:      :+:    :+:   */
+/*   event_handle_mouse.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:13:50 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 18:35:46 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/16 12:45:17 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 #define MIN 0
 #define MAX 1
-
 
 void	scroll(t_data *data, double zoom)
 {
@@ -31,7 +30,6 @@ void	scroll(t_data *data, double zoom)
 	data->range_max[Y] = center[Y] + new_range[Y] / 2.0;
 	draw_fractol(data);
 }
-
 
 void	move_center(t_data *data, double raw_mouse_x, double raw_mouse_y)
 {
@@ -67,9 +65,7 @@ int	set_mouse_events(int button, int mouse_x, int mouse_y, void *data_ptr)
 	return (0);
 }
 
-
-
-int close_window(t_data *data)
+int	close_window(t_data *data)
 {
 	free_data_exit(data);
 	return (1);

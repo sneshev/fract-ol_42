@@ -6,7 +6,7 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 18:40:44 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 18:43:57 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/16 12:46:21 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void	draw_ship(t_data *data)
 		while (x < WIDTH)
 		{
 			c[X] = data->range_min[X] + x * step[X];
-			pix_color = find_colors(calculate_point(c, data->max_iterations), data);
+			pix_color = find_colors(calculate_point
+					(c, data->max_iterations), data);
 			put_image_pixel(data, x, y, pix_color);
 			x++;
 		}

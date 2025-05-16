@@ -6,7 +6,7 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:33:53 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 17:41:54 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/16 12:53:40 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	julia_change_c(t_data *data, int key)
 	draw_fractol(data);
 }
 
-static int	calculate_point_julia(double x, double y, double c[2], int max_iterations)
+static int	calculate_point_julia(double x, double y,
+	double c[2], int max_iterations)
 {
 	int		count;
 	double	temp;
@@ -59,21 +60,21 @@ void	draw_julia(t_data *data)
 
 	step[X] = (data->range_max[X] - data->range_min[X]) / WIDTH;
 	step[Y] = (data->range_max[Y] - data->range_min[Y]) / HEIGHT;
-	coordinates[X] = 0;
 	coordinates[Y] = 0;
 	while (coordinates[Y] < HEIGHT)
 	{
+		coordinates[X] = 0;
 		while (coordinates[X] < WIDTH)
 		{
 			x = data->range_min[X] + (coordinates[X] * step[X]);
 			y = data->range_min[Y] + (coordinates[Y] * step[Y]);
 			pix_color = find_colors
-				(calculate_point_julia(x, y, data->c, data->max_iterations), data);
+				(calculate_point_julia(x, y,
+						data->c, data->max_iterations), data);
 			put_image_pixel(data, coordinates[X], coordinates[Y], pix_color);
 			coordinates[X]++;
 		}
 		coordinates[Y]++;
-		coordinates[X] = 0;
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 }

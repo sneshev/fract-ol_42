@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   event_handle_keys.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/16 12:41:09 by sneshev           #+#    #+#             */
+/*   Updated: 2025/05/16 12:42:06 by sneshev          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 #define ESC 65307 
@@ -30,12 +42,14 @@ void	zoom_image(t_data *data, double zoom)
 	draw_fractol(data);
 }
 
-void change_iterations(t_data *data, int key)
+void	change_iterations(t_data *data, int key)
 {
-    if (key == ITERPLUS)
-	    data->max_iterations = (int)(data->max_iterations * ITERATION_RAT + 0.5);
-    else if (key == ITERMIN)
-	    data->max_iterations = (int)(data->max_iterations / ITERATION_RAT + 0.5);
+	if (key == ITERPLUS)
+		data->max_iterations = (int)(data->max_iterations
+				* ITERATION_RAT + 0.5);
+	else if (key == ITERMIN)
+		data->max_iterations = (int)(data->max_iterations
+				/ ITERATION_RAT + 0.5);
 	draw_fractol(data);
 	ft_printf("\033[2K\r");
 	ft_printf("iterations: %d", data->max_iterations);

@@ -1,6 +1,6 @@
 NAME = fractol
 CC = cc 
-CFLAGS = -g -Wall -Wextra -Werror -lm
+CFLAGS = -g -Wall -Wextra -Werror
 
 MINILIBX = https://github.com/42paris/minilibx-linux.git
 MLIBX_PATH = minilibx
