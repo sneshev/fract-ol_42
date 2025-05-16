@@ -1,7 +1,8 @@
 .remove printf() for ft_printf()
+.fix the argv[] input and initialization for julia + explanational message on wrong input
+.make the iterrations start from little and increase as you zoom increase
+
 .add _bonus to burningship.c + should be "make bonus"
 .zooming with mouse should zoom on the cursor coordinate
 .norminette...
-.fix the argv[] input and initialization for julia + explanational message on wrong input
-.make the iterrations start from little and increase as you zoom increase
 .YOOO MAKE JULIA C_COORDINATE FOLLOW THE CURSOR (maybe at right click / hold)
