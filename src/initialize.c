@@ -88,7 +88,7 @@ t_data	*init_data(int argc, char *argv[])
 	if (argc == 4 && is_valid_input(argv[2]) && is_valid_input(argv[3]))
 	{
 		if (ft_strncmp(argv[1], "julia", 6) == 0)
-			init_julia(argv[2], argv[3]);
+			return (init_julia(argv[2], argv[3]));
 	}
 	return (explanational_message());
 }
