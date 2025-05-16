@@ -91,6 +91,7 @@ void	adjust_fractal_bounds(t_data *data);
 t_data	*explanational_message(void);
 void	free_data(t_data *data);
 double	atod(char *str);
+void	print_info(int fractal_type);
 
 //helpers
 void	print_coordinates(t_data *data);

@@ -18,10 +18,11 @@ int	main(int argc, char *argv[])
 
 	data = init_data(argc, argv);
 	if (!data)
-		return (printf("invalid data\n"), 1);
+		return (1);
 	if (!init_minilibx(data))
 		return (free(data), 1);
 	draw_fractol(data);
+	print_info(data->type);
 	mlx_event_handle(data);
 	mlx_loop(data->mlx);
 }
