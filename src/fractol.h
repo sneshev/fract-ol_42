@@ -71,9 +71,22 @@ int		init_minilibx(t_data *data);
 
 //fractols
 void	draw_fractol(t_data *data);
-void	mlx_event_handle(t_data *data);
-int		find_colors(int iterations, int color_set);
+int		find_colors(int iterations, t_data *data);
 void	put_image_pixel(t_data *data, int x, int y, int color);
+
+
+// event_handlers
+void	mlx_event_handle(t_data *data);
+int		set_keyhooks(int key, t_data *data);
+void	move_center(t_data *data, double raw_mouse_x, double raw_mouse_y);
+
+
+// utils
+void	adjust_fractal_bounds(t_data *data);
+t_data	*explanational_message(void);
+void	free_data_exit(t_data *data);
+double	atod(char *str);
+void	print_info(t_data *data);
 
 //mandelbrot
 t_data	*init_mandelbrot(void);
@@ -87,13 +100,6 @@ void	julia_change_c(t_data *data, int key);
 //burning ship
 void	draw_ship(t_data *data);
 t_data	*init_ship(void);
-
-// utils
-void	adjust_fractal_bounds(t_data *data);
-t_data	*explanational_message(void);
-void	free_data_exit(t_data *data);
-double	atod(char *str);
-void	print_info(t_data *data);
 
 //helpers
 void	print_coordinates(t_data *data);

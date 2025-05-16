@@ -12,22 +12,9 @@
 
 #include "fractol.h"
 
-#define ESC 65307 
-#define LEFT 65361
-#define UP 65362
-#define RIGHT 65363
-#define DOWN 65364
-#define W 119
-#define S 115
-#define A 97
-#define D 100
-#define Q 113
-#define E 101
-#define ITERPLUS 46
-#define ITERMIN 44
-
 #define MIN 0
 #define MAX 1
+
 
 void	scroll(t_data *data, double zoom)
 {
@@ -45,22 +32,6 @@ void	scroll(t_data *data, double zoom)
 	draw_fractol(data);
 }
 
-void change_iterations(t_data *data, int key)
-{
-	if (key == ITERPLUS)
-	{
-		data->max_iterations *= ITERATION_RAT;
-
-	}
-	else if (key == ITERMIN)
-	{
-		data->max_iterations /= ITERATION_RAT;
-
-	}
-	draw_fractol(data);
-	ft_printf("\033[2K\r");
-	ft_printf("iterations: %d", data->max_iterations);
-}
 
 void	move_center(t_data *data, double raw_mouse_x, double raw_mouse_y)
 {
@@ -96,33 +67,7 @@ int	set_mouse_events(int button, int mouse_x, int mouse_y, void *data_ptr)
 	return (0);
 }
 
-int	set_keyhooks(int key, t_data *data)
-{
-	if (key == ESC)
-		free_data_exit(data);
-	if (key == W)
-		scroll(data, ZOOM);
-	if (key == S)
-		scroll(data, 1 / ZOOM);
-	if (key == UP)
-		move_center(data, WIDTH / 2, HEIGHT / 2 - HEIGHT * MOVE);
-	if (key == DOWN)
-		move_center(data, WIDTH / 2, HEIGHT / 2 + HEIGHT * MOVE);
-	if (key == LEFT)
-		move_center(data, WIDTH / 2 - WIDTH * MOVE, HEIGHT / 2);
-	if (key == RIGHT)
-		move_center(data, WIDTH / 2 + WIDTH * MOVE, HEIGHT / 2);
-	if (key >= 48 && key <= 57)
-	{
-		data->color_set = key - 48;
-		draw_fractol(data);
-	}
-	if (key == D || key == A || key == Q || key == E)
-		julia_change_c(data, key);
-	if (key == ITERMIN || key == ITERPLUS)
-		change_iterations(data, key);
-	return (1);
-}
+
 
 int close_window(t_data *data)
 {

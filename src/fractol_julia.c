@@ -68,7 +68,7 @@ void	draw_julia(t_data *data)
 			x = data->range_min[X] + (coordinates[X] * step[X]);
 			y = data->range_min[Y] + (coordinates[Y] * step[Y]);
 			pix_color = find_colors
-				(calculate_point_julia(x, y, data->c, data->max_iterations), data->color_set);
+				(calculate_point_julia(x, y, data->c, data->max_iterations), data);
 			put_image_pixel(data, coordinates[X], coordinates[Y], pix_color);
 			coordinates[X]++;
 		}

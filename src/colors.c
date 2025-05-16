@@ -22,27 +22,28 @@
 #define WHITE 0x00FFFFFF
 #define GREEN 0x0000FF00
 
-int	colors_tropical(int iterations)
+int	colors_tropical(int iterations, int max_iterations)
 {
-	if (++iterations < 6)
-		return (RED + iterations * 99);
-	if (iterations == ITERATIONS)
+	if (iterations == max_iterations)
 		return (0x000000);
+	if (iterations < 6)
+		return (RED + iterations * 99);
+
 	return (RED + iterations * 50);
 }
 
-int	colors_test(int iterations)
+int	colors_test(int iterations, int max_iterations)
 {
 	if (iterations < 6)
 		return (BLACK);
-	if (iterations == ITERATIONS)
+	if (iterations == max_iterations)
 		return (0x000000);
 	return (GREEN + iterations * 50);
 }
 
-int	colors_basic(int iterations)
+int	colors_basic(int iterations, int max_iterations)
 {
-	if (iterations == ITERATIONS)
+	if (iterations == max_iterations)
 		return (BLACK);
 	return (WHITE);
 }
@@ -69,11 +70,13 @@ int	colors_basic(int iterations)
 //     return color;
 // }
 
-int	find_colors(int iterations, int color_set)
+int	find_colors(int iterations, t_data *data)
 {
+	int max_iterations = data->max_iterations;
+	int color_set = data->color_set;
 	if (color_set == BASIC)
-		return (colors_basic(iterations));
+		return (colors_basic(iterations, max_iterations));
 	if (color_set == TROPICAL)
-		return (colors_tropical(iterations));
-	return (colors_test(iterations));
+		return (colors_tropical(iterations, max_iterations));
+	return (colors_test(iterations, max_iterations));
 }

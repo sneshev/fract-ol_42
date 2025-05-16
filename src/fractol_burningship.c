@@ -55,7 +55,7 @@ void	draw_ship(t_data *data)
 		while (x < WIDTH)
 		{
 			c[X] = data->range_min[X] + x * step[X];
-			pix_color = find_colors(calculate_point(c, data->max_iterations), data->color_set);
+			pix_color = find_colors(calculate_point(c, data->max_iterations), data);
 			put_image_pixel(data, x, y, pix_color);
 			x++;
 		}
