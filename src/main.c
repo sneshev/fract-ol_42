@@ -6,7 +6,7 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:29:11 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 17:44:00 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/16 13:22:15 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ int	main(int argc, char *argv[])
 	if (!data)
 		return (1);
 	if (!init_minilibx(data))
-		return (free(data), 1);
+	{
+		free_data_exit(data);
+		return (1);
+	}
 	draw_fractol(data);
 	print_info(data);
 	mlx_event_handle(data);

@@ -6,7 +6,7 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:13:50 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/16 12:45:17 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/16 13:30:17 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,38 @@
 #define MIN 0
 #define MAX 1
 
-void	scroll(t_data *data, double zoom)
+void	scroll(t_data *data, double zoom, double mouse_x, double mouse_y)
 {
+	double	mouse_pos[2];
 	double	new_range[2];
-	double	center[2];
 
-	center[X] = (data->range_max[X] + data->range_min[X]) / 2.0;
-	center[Y] = (data->range_max[Y] + data->range_min[Y]) / 2.0;
+	mouse_pos[X] = data->range_min[X] + (mouse_x / (double)WIDTH)
+		* (data->range_max[X] - data->range_min[X]);
+	mouse_pos[Y] = data->range_min[Y] + (mouse_y / (double)HEIGHT)
+		* (data->range_max[Y] - data->range_min[Y]);
 	new_range[X] = (data->range_max[X] - data->range_min[X]) * zoom;
 	new_range[Y] = (data->range_max[Y] - data->range_min[Y]) * zoom;
-	data->range_min[X] = center[X] - new_range[X] / 2.0;
-	data->range_max[X] = center[X] + new_range[X] / 2.0;
-	data->range_min[Y] = center[Y] - new_range[Y] / 2.0;
-	data->range_max[Y] = center[Y] + new_range[Y] / 2.0;
+	data->range_min[X] = mouse_pos[X]
+		- (mouse_pos[X] - data->range_min[X]) * zoom;
+	data->range_max[X] = data->range_min[X] + new_range[X];
+	data->range_min[Y] = mouse_pos[Y]
+		- (mouse_pos[Y] - data->range_min[Y]) * zoom;
+	data->range_max[Y] = data->range_min[Y] + new_range[Y];
 	draw_fractol(data);
+}
+
+int	set_mouse_events(int button, int mouse_x, int mouse_y, void *data_ptr)
+{
+	t_data	*data;
+
+	data = (t_data *)data_ptr;
+	if (button == 1)
+		move_center(data, mouse_x, mouse_y);
+	if (button == 4)
+		scroll(data, ZOOM, mouse_x, mouse_y);
+	if (button == 5)
+		scroll(data, 1 / ZOOM, mouse_x, mouse_y);
+	return (0);
 }
 
 void	move_center(t_data *data, double raw_mouse_x, double raw_mouse_y)
@@ -49,20 +67,6 @@ void	move_center(t_data *data, double raw_mouse_x, double raw_mouse_y)
 	data->range_min[Y] = mouse_pos[Y] - (range[MAX][Y] - range[MIN][Y]) / 2.0;
 	data->range_max[Y] = mouse_pos[Y] + (range[MAX][Y] - range[MIN][Y]) / 2.0;
 	draw_fractol(data);
-}
-
-int	set_mouse_events(int button, int mouse_x, int mouse_y, void *data_ptr)
-{
-	t_data	*data;
-
-	data = (t_data *)data_ptr;
-	if (button == 1)
-		move_center(data, mouse_x, mouse_y);
-	if (button == 4)
-		scroll(data, ZOOM);
-	if (button == 5)
-		scroll(data, 1 / ZOOM);
-	return (0);
 }
 
 int	close_window(t_data *data)
