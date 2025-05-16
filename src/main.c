@@ -22,7 +22,7 @@ int	main(int argc, char *argv[])
 	if (!init_minilibx(data))
 		return (free(data), 1);
 	draw_fractol(data);
-	print_info(data->type);
+	print_info(data);
 	mlx_event_handle(data);
 	mlx_loop(data->mlx);
 }

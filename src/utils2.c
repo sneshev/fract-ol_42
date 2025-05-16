@@ -72,7 +72,7 @@ t_data	*explanational_message(void)
 	return (NULL);
 }
 
-void print_info(int fractal_type)
+void print_info(t_data *data)
 {
 	ft_printf("\033[2J\033[H");
 	ft_printf("MOVEMENT:\n");
@@ -92,13 +92,15 @@ void print_info(int fractal_type)
 	ft_printf("0   -> base\n");
 	ft_printf("1   -> tropical\n");
 	ft_printf("2   -> cool blue\n");
-	if (fractal_type == JULIA)
+	if (data->type == JULIA)
 	{
 		ft_printf("\n\n");	
 		ft_printf("C COORDINATES ADJUSTMENT:\n");
 		ft_printf("Q  -> decrease c_imag\n");	
 		ft_printf("E  -> increase c_imag\n");	
 		ft_printf("A  -> decrease c_real\n");	
-		ft_printf("D  -> increase c_real\n");	
+		ft_printf("D  -> increase c_real\n");
+		ft_printf("\n\n");	
+		ft_printf("c_real = %f, c_imag = %f", data->c[X], data->c[Y]);	fflush(NULL);
 	}
 }

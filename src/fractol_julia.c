@@ -29,6 +29,9 @@ void	julia_change_c(t_data *data, int key)
 	if (key == E)
 		data->c[Y] += ADJUST_RAT;
 	draw_fractol(data);
+	ft_printf("\033[2K\r");
+	printf("c_real = %f, c_imag = %f", data->c[X] + 1, data->c[Y] + 1);	fflush(NULL);
+
 }
 
 static int	calculate_point_julia(double x, double y, double c[2]) // ??????

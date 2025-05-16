@@ -24,7 +24,7 @@
 # define JULIA 1
 # define BURNING_SHIP 2
 
-# define ITERATIONS 500
+# define ITERATIONS 50
 # define COLOR_SET 0
 
 # define HEIGHT 1000
@@ -91,7 +91,7 @@ void	adjust_fractal_bounds(t_data *data);
 t_data	*explanational_message(void);
 void	free_data(t_data *data);
 double	atod(char *str);
-void	print_info(int fractal_type);
+void	print_info(t_data *data);
 
 //helpers
 void	print_coordinates(t_data *data);
