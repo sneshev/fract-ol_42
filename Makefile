@@ -35,6 +35,9 @@ LIBS = -L$(LIBFT_PATH) -lft -L$(MLIBX_PATH) -lmlx -lXext -lX11
 $(NAME): $(OBJS) libft mlibx
 	$(CC) $(OBJS) $(LIBS) -o $(NAME)
 
+clean:
+	rm -rf $(OBJS_DIR) $(NAME)
+
 fclean:
 	rm -rf $(MLIBX_PATH) $(LIBFT_PATH) $(OBJS_DIR) $(NAME)
 
