@@ -6,7 +6,7 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:22:23 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/16 12:46:34 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/16 13:04:43 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,8 @@ void	julia_change_c(t_data *data, int key);
 void	draw_ship(t_data *data);
 t_data	*init_ship(void);
 
-//helpers
-void	print_coordinates(t_data *data);
-void	print_data(t_data *data);
+// helpers
+// void	print_coordinates(t_data *data);
+// void	print_data(t_data *data);
 
 #endif

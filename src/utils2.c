@@ -6,7 +6,7 @@
 /*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 17:34:57 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/14 17:34:58 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/05/16 13:06:41 by sneshev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,23 @@ t_data	*explanational_message(void)
 	ft_printf("⬇️	EXAMPLES	⬇️ \n");
 	ft_printf("./fractol mandelbrot\n");
 	ft_printf("./fractol julia\n");
-	ft_printf("./fractol julia c_real c_imag (./fractol julia 0.12 -1.23451)\n");
+	ft_printf("./fractol julia c_real c_imag ");
+	ft_printf("(./fractol julia 0.12 -1.23451)\n");
 	ft_printf("./fractol bship (burning ship fractal)\n");
 	return (NULL);
 }
 
-void print_info(t_data *data)
+void	print_info_julia(void)
+{
+	ft_printf("\n\n");
+	ft_printf("C COORDINATES ADJUSTMENT:\n");
+	ft_printf("Q  -> decrease c_imag\n");
+	ft_printf("E  -> increase c_imag\n");
+	ft_printf("A  -> decrease c_real\n");
+	ft_printf("D  -> increase c_real\n");
+}
+
+void	print_info(t_data *data)
 {
 	ft_printf("\033[2J\033[H");
 	ft_printf("MOVEMENT:\n");
@@ -81,13 +92,12 @@ void print_info(t_data *data)
 	ft_printf("Arrow Down ⬇️    -> move down\n");
 	ft_printf("Arrow Left ⬅️    -> move left\n");
 	ft_printf("Arrow Right➡️    -> move right\n");
-	ft_printf("\n");
+	ft_printf("\n\n");
 	ft_printf("\n");
 	ft_printf("ZOOMING:\n");
 	ft_printf("W   -> Zoom in\n");
 	ft_printf("S   -> Zoom out\n");
-	ft_printf("\n");
-	ft_printf("\n");
+	ft_printf("\n\n");
 	ft_printf("CHANGE COLORS:\n");
 	ft_printf("0   -> base\n");
 	ft_printf("1   -> tropical\n");
@@ -98,15 +108,6 @@ void print_info(t_data *data)
 	ft_printf("<   -> decrease iterations\n");
 	ft_printf(">   -> increase iterations\n");
 	if (data->type == JULIA)
-	{
-		ft_printf("\n\n");	
-		ft_printf("C COORDINATES ADJUSTMENT:\n");
-		ft_printf("Q  -> decrease c_imag\n");	
-		ft_printf("E  -> increase c_imag\n");	
-		ft_printf("A  -> decrease c_real\n");	
-		ft_printf("D  -> increase c_real\n");
-	}
-	ft_printf("\n");
-	ft_printf("\n");
-	ft_printf("iterations: %d", data->max_iterations);
+		print_info_julia();
+	ft_printf("\n\niterations: %d", data->max_iterations);
 }
