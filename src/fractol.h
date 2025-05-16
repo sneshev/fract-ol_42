@@ -16,6 +16,7 @@
 # include "../minilibx/mlx.h"
 # include "../minilibx/mlx_int.h"
 # include "../libft/libft.h"
+# include "../ft_printf/ft_printf.h"
 # include <stdbool.h>
 # include <math.h>
 
