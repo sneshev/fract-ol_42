@@ -14,7 +14,7 @@
 #define TEMP 2
 
 // z(n+1) = (|z_x| + i|z_y|)^2 + c;
-static int	calculate_point(double *c)
+static int	calculate_point(double *c, int max_iterations)
 {
 	double	z[3];
 	double	abs_z[2];
@@ -23,7 +23,7 @@ static int	calculate_point(double *c)
 	count = 0;
 	z[X] = 0;
 	z[Y] = 0;
-	while (count < ITERATIONS)
+	while (count < max_iterations)
 	{
 		abs_z[X] = fabs(z[X]);
 		abs_z[Y] = fabs(z[Y]);
@@ -55,7 +55,7 @@ void	draw_ship(t_data *data)
 		while (x < WIDTH)
 		{
 			c[X] = data->range_min[X] + x * step[X];
-			pix_color = find_colors(calculate_point(c), data->color_set);
+			pix_color = find_colors(calculate_point(c, data->max_iterations), data->color_set);
 			put_image_pixel(data, x, y, pix_color);
 			x++;
 		}
@@ -77,5 +77,6 @@ t_data	*init_ship(void)
 	data->c[X] = 0.0;
 	data->c[Y] = 0.0;
 	adjust_fractal_bounds(data);
+	data->max_iterations = ITERATIONS;
 	return (data);
 }

@@ -30,7 +30,7 @@ void	put_image_pixel(t_data *data, int x, int y, int color)
 }
 
 // z(n+1) = z^2 + c;
-static int	calculate_point(double *c)
+static int	calculate_point(double *c, int max_iterations)
 {
 	double	z[3];
 	int		count;
@@ -38,7 +38,7 @@ static int	calculate_point(double *c)
 	count = 0;
 	z[X] = 0;
 	z[Y] = 0;
-	while (count < ITERATIONS)
+	while (count < max_iterations)
 	{
 		z[TEMP] = z[X] * z[X] - z[Y] * z[Y] + c[X];
 		z[Y] = 2 * z[X] * z[Y] + c[Y];
@@ -68,7 +68,7 @@ void	draw_mandelbrot(t_data *data)
 		while (x < WIDTH)
 		{
 			c[X] = data->range_min[X] + x * step[X];
-			pix_color = find_colors(calculate_point(c), data->color_set);
+			pix_color = find_colors(calculate_point(c, data->max_iterations), data->color_set);
 			put_image_pixel(data, x, y, pix_color);
 			x++;
 		}
@@ -90,5 +90,6 @@ t_data	*init_mandelbrot(void)
 	data->c[X] = 0.0;
 	data->c[Y] = 0.0;
 	adjust_fractal_bounds(data);
+	data->max_iterations = ITERATIONS;
 	return (data);
 }

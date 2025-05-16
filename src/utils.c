@@ -33,7 +33,7 @@ void	adjust_fractal_bounds(t_data *data)
 	data->range_max[Y] = center[Y] + range[Y] / 2.0;
 }
 
-void	free_data(t_data *data)
+void	free_data_exit(t_data *data)
 {
 	if (data->img_info)
 		free(data->img_info);
@@ -48,6 +48,8 @@ void	free_data(t_data *data)
 	}
 	if (data)
 		free(data);
+	ft_printf("\n");
+	exit(1);
 }
 
 void	draw_fractol(t_data *data)

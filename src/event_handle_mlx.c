@@ -23,6 +23,8 @@
 #define D 100
 #define Q 113
 #define E 101
+#define ITERPLUS 46
+#define ITERMIN 44
 
 #define MIN 0
 #define MAX 1
@@ -41,6 +43,23 @@ void	scroll(t_data *data, double zoom)
 	data->range_min[Y] = center[Y] - new_range[Y] / 2.0;
 	data->range_max[Y] = center[Y] + new_range[Y] / 2.0;
 	draw_fractol(data);
+}
+
+void change_iterations(t_data *data, int key)
+{
+	if (key == ITERPLUS)
+	{
+		data->max_iterations *= ITERATION_RAT;
+
+	}
+	else if (key == ITERMIN)
+	{
+		data->max_iterations /= ITERATION_RAT;
+
+	}
+	draw_fractol(data);
+	ft_printf("\033[2K\r");
+	ft_printf("iterations: %d", data->max_iterations);
 }
 
 void	move_center(t_data *data, double raw_mouse_x, double raw_mouse_y)
@@ -80,10 +99,7 @@ int	set_mouse_events(int button, int mouse_x, int mouse_y, void *data_ptr)
 int	set_keyhooks(int key, t_data *data)
 {
 	if (key == ESC)
-	{
-		free_data(data);
-		exit(0);
-	}
+		free_data_exit(data);
 	if (key == W)
 		scroll(data, ZOOM);
 	if (key == S)
@@ -103,13 +119,15 @@ int	set_keyhooks(int key, t_data *data)
 	}
 	if (key == D || key == A || key == Q || key == E)
 		julia_change_c(data, key);
+	if (key == ITERMIN || key == ITERPLUS)
+		change_iterations(data, key);
 	return (1);
 }
 
 int close_window(t_data *data)
 {
-	free_data(data);
-	exit(0);
+	free_data_exit(data);
+	return (1);
 }
 
 void	mlx_event_handle(t_data *data)

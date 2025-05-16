@@ -25,6 +25,7 @@
 # define BURNING_SHIP 2
 
 # define ITERATIONS 50
+# define ITERATION_RAT 1.1
 # define COLOR_SET 0
 
 # define HEIGHT 1000
@@ -61,6 +62,7 @@ typedef struct s_data
 	double		c[2];
 	double		range_min[2];
 	double		range_max[2];
+	int			max_iterations;
 }	t_data;
 
 // initialize
@@ -89,7 +91,7 @@ t_data	*init_ship(void);
 // utils
 void	adjust_fractal_bounds(t_data *data);
 t_data	*explanational_message(void);
-void	free_data(t_data *data);
+void	free_data_exit(t_data *data);
 double	atod(char *str);
 void	print_info(t_data *data);
 

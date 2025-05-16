@@ -92,6 +92,11 @@ void print_info(t_data *data)
 	ft_printf("0   -> base\n");
 	ft_printf("1   -> tropical\n");
 	ft_printf("2   -> cool blue\n");
+	ft_printf("\n");
+	ft_printf("\n");
+	ft_printf("CHANGE ITERATIONS:\n");
+	ft_printf("<   -> decrease iterations\n");
+	ft_printf(">   -> increase iterations\n");
 	if (data->type == JULIA)
 	{
 		ft_printf("\n\n");	
@@ -100,7 +105,8 @@ void print_info(t_data *data)
 		ft_printf("E  -> increase c_imag\n");	
 		ft_printf("A  -> decrease c_real\n");	
 		ft_printf("D  -> increase c_real\n");
-		ft_printf("\n\n");	
-		ft_printf("c_real = %f, c_imag = %f", data->c[X], data->c[Y]);	fflush(NULL);
 	}
+	ft_printf("\n");
+	ft_printf("\n");
+	ft_printf("iterations: %d", data->max_iterations);
 }
