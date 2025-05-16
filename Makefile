@@ -6,6 +6,7 @@ MINILIBX = https://github.com/42paris/minilibx-linux.git
 MLIBX_PATH = minilibx
 LIBFT = git@github.com:sneshev/libft_42.git
 LIBFT_PATH = libft
+
 all:  libft mlibx $(NAME)
 
 mlibx: 
