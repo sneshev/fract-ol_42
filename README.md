@@ -8,7 +8,7 @@ Welcome to the **mathness**!
 In mathematics, a fractal is a geometric shape containing detailed structure at arb...
 basically crazy math shi creating crazy visual shi. Read some [wikipedia](https://en.wikipedia.org/wiki/Fractal) or something
 
-
+![bl](assets/bl1.png)
 
 ## How to run?
 ### Clone repo and compile
@@ -23,7 +23,6 @@ Mandelbrot set
 ./fractol mandelbrot
 ```
 
-![bl](assets/bl1.png)
 
 ## What I Learned (stuff)
 ...
