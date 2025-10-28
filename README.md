@@ -32,10 +32,10 @@ make
 ```
 <p align="center"><i>ℹ️ Controls show up in the terminal on program start</i></p>
 
-## What I Learned (stuff)
-...
-...
-...
+## Creating the project
+
+Fract-ol is built **entirely in C**, using **MiniLibX** for graphics and event handling.  
+It combines **math, logic, and visuals** — turning pure math formulas into interactive art.
 
 ![bship](assets/bship.png)
 ![Mandelbrot2](assets/m2.png)
