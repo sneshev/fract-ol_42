@@ -17,7 +17,7 @@ git clone git@github.com:sneshev/fract-ol_42.git fractol
 cd fractol
 make
 ```
-### run
+### Run different sets
 Possible sets to run
 ``` 
 ./fractol mandelbrot
