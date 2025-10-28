@@ -1,5 +1,4 @@
-## cool gifs
-(info below)
+(scroll down for info)
 
 ![zoom](assets/zoom.gif)
 ![jiter](assets/jiter.gif)
