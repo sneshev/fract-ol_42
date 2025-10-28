@@ -17,12 +17,26 @@ git clone git@github.com:sneshev/fract-ol_42.git fractol
 cd fractol
 make
 ```
-### run fractol
+### run
 Mandelbrot set
 ```
 ./fractol mandelbrot
 ```
 
+Julia set
+```
+./fractol julia
+```
+
+Julia set with parameters
+```
+./fractol julia c_real c_imag
+```
+
+Burning Ship
+```
+./fractol bship
+```
 
 ## What I Learned (stuff)
 ...
