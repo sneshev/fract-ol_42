@@ -1,4 +1,5 @@
 # Fract-ol 42 🌀
+Welcome to the mathness!  
 
 ![zoom](assets/zoom.gif)
 ![jiter](assets/jiter.gif)
