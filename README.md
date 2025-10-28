@@ -4,7 +4,7 @@ Welcome to my **Fract-ol 42 project**!
 ![zoom](assets/zoom.gif)
 ![jiter](assets/jiter.gif)
 
-# WHAT IS A FRACTAL?
+## WHAT IS A FRACTAL?
 In mathematics, a fractal is a geometric shape containing detailed structure at arb...
 basically crazy math shi creating crazy visual shi
 
