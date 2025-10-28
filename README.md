@@ -18,23 +18,11 @@ cd fractol
 make
 ```
 ### run
-Mandelbrot set
+Possible sets to run
 ```
 ./fractol mandelbrot
-```
-
-Julia set
-```
 ./fractol julia
-```
-
-Julia set with parameters
-```
 ./fractol julia c_real c_imag
-```
-
-Burning Ship
-```
 ./fractol bship
 ```
 
