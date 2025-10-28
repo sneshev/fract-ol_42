@@ -12,13 +12,18 @@ basically crazy math shi creating crazy visual shi
 
 
 ## How to run?
+### Clone repo and compile
 ```bash
 git clone git@github.com:sneshev/fract-ol_42.git
 cd fract-ol
 make
 ```
+### run fractol
+```
 Fract-ol ->here add fractol description and project description (coding it..)
 ->here add project description (how to compile, run, ..)
+
+```
 
 ![bship](assets/bship.png)
 ![Mandelbrot2](assets/m2.png)
