@@ -18,7 +18,6 @@ cd fractol
 make
 ```
 ### Run different sets
-Possible sets to run
 ``` 
 ./fractol mandelbrot
 ```
