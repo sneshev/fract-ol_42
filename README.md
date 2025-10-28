@@ -6,7 +6,7 @@ Welcome to the **mathness**!
 
 ## WHAT IS A FRACTAL?
 In mathematics, a fractal is a geometric shape containing detailed structure at arb...
-basically crazy math shi creating crazy visual shi
+basically crazy math shi creating crazy visual shi. Read some [wikipedia](https://en.wikipedia.org/wiki/Fractal) or something
 
 ![bl](assets/bl1.png)
 
@@ -14,8 +14,8 @@ basically crazy math shi creating crazy visual shi
 ## How to run?
 ### Clone repo and compile
 ```bash
-git clone git@github.com:sneshev/fract-ol_42.git
-cd fract-ol
+git clone git@github.com:sneshev/fract-ol_42.git fractol
+cd fractol
 make
 ```
 ### run fractol
