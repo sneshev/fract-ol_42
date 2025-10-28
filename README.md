@@ -2,7 +2,7 @@
 ![jiter](assets/jiter.gif)
 <!-- ![iterjulia](assets/bl1.png) -->
 
-#WHAT IS A FRACTAL?
+# WHAT IS A FRACTAL?
 In mathematics, a fractal is a geometric shape containing detailed structure at arbi...
 basically crazy math shi creating cool visual shi
 
