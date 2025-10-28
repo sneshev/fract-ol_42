@@ -21,10 +21,13 @@ make
 Possible sets to run
 ``` 
 ./fractol mandelbrot
+```
 ``` 
 ./fractol julia
+```
 ``` 
 ./fractol julia c_real c_imag 
+```
 ``` 
 ./fractol bship 
 ```
