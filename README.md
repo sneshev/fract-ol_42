@@ -36,7 +36,9 @@ make
 
 Fract-ol is built **entirely in C**, using **MiniLibX** for graphics and event handling.  
 It combines **math, logic, and visuals** — turning pure math formulas into interactive art.
-- Low-level **graphics programming** and rendering  
+- Low-level **graphics programming** and rendering
+- **Complex number math** for Mandelbrot, Julia & Burning Ship sets
+- **Floating-point** precision  
 - **Keyboard/mouse events** -> real-time zoom, movement, iteration, and color change
  
 ![bship](assets/bship.png)
