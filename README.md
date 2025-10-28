@@ -13,6 +13,6 @@ Fract-ol ->here add fractol description and project description (coding it..)
 ->here add cool shit
 <!-- ![iterjulia](assets/smaller.gif) -->
 
-![univrs](assets/univrs.gif)
-![Mandelbrot2](assets/m2.png)
 ![bship](assets/bship.png)
+![Mandelbrot2](assets/m2.png)
+![univrs](assets/univrs.gif)
