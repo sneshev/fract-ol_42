@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sneshev <sneshev@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stefuntu <stefuntu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:22:23 by sneshev           #+#    #+#             */
-/*   Updated: 2025/05/16 13:04:43 by sneshev          ###   ########.fr       */
+/*   Updated: 2025/10/28 21:37:08 by stefuntu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define COLOR_SET 0
 
 # define HEIGHT 1000
-# define WIDTH 1000
+# define WIDTH 1300
 
 # define ZOOM 0.7
 # define MOVE 0.05

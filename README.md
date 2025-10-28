@@ -1,3 +1,4 @@
+![iterjulia](assets/bl1.png)
 ![iterjulia](assets/smaller.gif)
 
 ->here add zooming gif
