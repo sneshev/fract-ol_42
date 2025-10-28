@@ -30,6 +30,7 @@ make
 ``` 
 ./fractol bship 
 ```
+ℹ️ Controls show up in the terminal on program start
 
 ## What I Learned (stuff)
 ...
