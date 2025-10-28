@@ -18,7 +18,7 @@ cd fractol
 make
 ```
 ### run
-Mandelbrot set
+#### Mandelbrot set
 ```
 ./fractol mandelbrot
 ```
