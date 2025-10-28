@@ -30,7 +30,7 @@ make
 ``` 
 ./fractol bship 
 ```
-<p align="center">ℹ️ *Controls show up in the terminal on program start*</p>
+<p align="center"><i>ℹ️ *Controls show up in the terminal on program start*</i></p>
 
 ## What I Learned (stuff)
 ...
