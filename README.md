@@ -20,13 +20,14 @@ make
 ### run
 Possible sets to run
 ``` 
-./fractol mandelbrot ```
+./fractol mandelbrot
 ``` 
-./fractol julia ``` 
+./fractol julia
 ``` 
-./fractol julia c_real c_imag ``` 
+./fractol julia c_real c_imag 
 ``` 
-./fractol bship ``` 
+./fractol bship 
+```
 
 ## What I Learned (stuff)
 ...
