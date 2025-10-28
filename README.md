@@ -1,1 +1,1 @@
-![Mandelbrot1](assets/m1.png)
+![Mandelbrot12](assets/m1.png)
