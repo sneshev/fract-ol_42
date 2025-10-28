@@ -11,7 +11,12 @@ basically crazy math shi creating crazy visual shi
 ![bl](assets/bl1.png)
 
 
-## Fract-ol 42 project
+## How to run?
+```bash
+# Clone the repo
+git clone https://github.com/username/fract-ol.git
+cd fract-ol
+```
 Fract-ol ->here add fractol description and project description (coding it..)
 ->here add project description (how to compile, run, ..)
 
