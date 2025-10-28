@@ -13,9 +13,9 @@ basically crazy math shi creating crazy visual shi
 
 ## How to run?
 ```bash
-# Clone the repo
-git clone https://github.com/username/fract-ol.git
+git clone git@github.com:sneshev/fract-ol_42.git
 cd fract-ol
+make
 ```
 Fract-ol ->here add fractol description and project description (coding it..)
 ->here add project description (how to compile, run, ..)
