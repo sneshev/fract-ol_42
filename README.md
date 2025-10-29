@@ -40,7 +40,7 @@ It combines **math, logic, and visuals** — turning pure math formulas into int
 - Low-level **graphics programming** and rendering
 - **Complex number math** for Mandelbrot, Julia & Burning Ship sets
 - Handling **floating-point precision** for deep, stable zooms
-- **Keyboard/mouse events** -> real-time zoom, movement, iteration control, and color change
+- **Keyboard/mouse events** -> real-time zoom, movement, color change, and iteration control
 - Following **The Norm** of 42 network for clean, consistent, and readable code
 
 ![bship](assets/bship.png)
