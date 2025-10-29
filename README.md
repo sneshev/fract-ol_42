@@ -1,5 +1,6 @@
 # Fract-ol 42 🌀
-Welcome to the **mathness**!  
+<!-- Welcome to the **mathness**!   -->
+The purpose of this project is to render beautiful, fully-interractional fractals of the Julia and Mandelbrot sets from scratch.
 
 ![zoom](assets/zoom.gif)
 ![jiter](assets/jiter.gif)
