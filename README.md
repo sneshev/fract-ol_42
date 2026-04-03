@@ -14,7 +14,7 @@ basically crazy math shi creating crazy visual shi. Read some [wikipedia](https:
 ## How to run?
 ### Clone repo and compile
 ```bash
-git clone git@github.com:sneshev/fract-ol_42.git fractol
+git clone https://github.com/sneshev/fract-ol_42.git fractol
 cd fractol
 make
 ```
